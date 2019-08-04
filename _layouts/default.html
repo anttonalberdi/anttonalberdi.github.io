@@ -1,31 +1,27 @@
 <!DOCTYPE html>
-	<html>
-		<head>
-			<title>{{ page.title }}</title>
-			<!-- link to main stylesheet -->
-			<link rel="stylesheet" type="text/css" href="/css/main.css">
-		</head>
-		<body>
-      {% include navbar.html %}
-
-			<nav>
-	    		<ul>
-	        		<li><a href="/">Home</a></li>
-		        	<li><a href="/about">About</a></li>
-	        		<li><a href="/cv">CV</a></li>
-	        		<li><a href="/blog">Blog</a></li>
-	    		</ul>
-			</nav>
-			<div class="container">
-
-			{{ content }}
-
-			</div><!-- /.container -->
-			<footer>
-	    		<ul>
-	        		<li><a href="mailto:anttonalberdi@gmail.com">email</a></li>
-	        		<li><a href="https://github.com/anttonalberdi">github.com/anttonalberdi</a></li>
-				</ul>
-			</footer>
-		</body>
-	</html>
+<html lang="en">
+  {% include head.html %}
+  <body>
+    {% include navbar.html %}
+    {% if page.header != nil %}
+      {% if page.header %}
+        {% include {{ page.header }} %}
+      {% endif %}
+    {% else %}
+      {% if site.header %}
+        {% include {{ site.header }} %}
+      {% else %}
+        {% include header.html %}
+      {% endif %}
+    {% endif %}
+    <div class="container">
+      <div class="row">
+        {% if page.date %}
+          <p class="post-meta">{{ page.date | date: "%b %-d, %Y" }}{% if page.author %} • {{ page.author }}{% endif %}{% if page.meta %} • {{ page.meta }}{% endif %}</p>
+        {% endif %}
+        {{ content }}
+      </div>
+    </div>
+    {% include footer.html %}
+  </body>
+</html>
