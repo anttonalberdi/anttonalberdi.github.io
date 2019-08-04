@@ -20,11 +20,11 @@ video: "u7deClndzQw"
 navigation:
   left:
     links:
-      - title: About
-        href: /about/
-      - title: Link 2
-        href: #
-      - title: Dropdown
+      - title: CV
+        href: /cv.md
+      - title: Publications
+        href: /publications.md
+      - title: Resources
         dropdown:
           - title: SubMenu 1
             href: #
@@ -38,14 +38,14 @@ navigation:
 # The footer section.
 footer:
   sections:
-    - title: Useful Links 1
+    - title: Research Social
       links:
-        - href: https://www.google.com
-          title: Google.com
-        - href: https://www.yahoo.com
-          title: Yahoo.com
-        - href: https://www.msn.com
-          title: MSN
+        - href: https://orcid.org/0000-0002-2875-6446
+          title: ORCID
+        - href: https://www.researchgate.net/profile/Antton_Alberdi
+          title: ResearchGate
+        - href: https://publons.com/researcher/1301567/antton-alberdi/
+          title: Publons
     - title: Useful Links 2
       links:
         - href: https://www.google.com
