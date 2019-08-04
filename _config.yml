@@ -7,8 +7,8 @@ description: > # this means to ignore newlines until "baseurl:"
   line in _config.yml. It will appear in your document head meta (for
   Google search results) and in your feed.xml site description.
 baseurl: "" # the subpath of your site, e.g. /blog/
-url: "https://www.google.com"
-copyright: © My Company 2013
+url: "https://anttonalberdi.github.io/"
+copyright: Antton Alberdi CC-by 2019
 
 # Build settings
 markdown: kramdown
