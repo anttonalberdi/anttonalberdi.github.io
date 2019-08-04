@@ -4552,7 +4552,7 @@ a.list-group-item.active > .badge,
 }
 .jumbotron h1,
 .jumbotron .h1 {
-  font-size: 48px;
+  font-size: 40px;
   color: inherit;
 }
 .jumbotron p {
@@ -4565,6 +4565,7 @@ a.list-group-item.active > .badge,
 }
 .container .jumbotron {
   border-radius: 6px;
+  margin-bottom: 0px;
 }
 .jumbotron .container {
   max-width: 100%;
