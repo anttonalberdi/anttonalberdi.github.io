@@ -4545,10 +4545,10 @@ a.list-group-item.active > .badge,
   margin-left: 3px;
 }
 .jumbotron {
-  padding: 30px;
+  padding-top: 30px;
   margin-bottom: 5px;
   color: inherit;
-  background-color: #eee;
+  background-color: #f4f4f4;
 }
 .jumbotron h1,
 .jumbotron .h1 {
