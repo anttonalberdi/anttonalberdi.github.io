@@ -46,6 +46,8 @@ footer:
           title: ResearchGate
         - href: https://publons.com/researcher/1301567/antton-alberdi/
           title: Publons
+        - href: https://scholar.google.dk/citations?user=06qSsqIAAAAJ&hl=en
+          title: Google Scholar
     - title: Projects
       links:
         - href: http://www.holofood.eu
