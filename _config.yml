@@ -21,9 +21,9 @@ navigation:
   left:
     links:
       - title: CV
-        href: /cv.md
+        href: /cv/
       - title: Publications
-        href: /publications.md
+        href: /publications/
       - title: Resources
         dropdown:
           - title: SubMenu 1
