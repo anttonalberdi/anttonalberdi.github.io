@@ -36,7 +36,7 @@
     "path": "@PROJECT_PATH@",
     "versionFirst": "4.11.2",
     "siteFonts": [],
-    "uniqCompNum": 80,
+    "uniqCompNum": 81,
     "versionPublish": "4.11.2",
     "screenshot": "screenshot.png",
     "favicon": "",
@@ -1505,7 +1505,7 @@
             }
           },
           "_name": "content4",
-          "_customHTML": "<section class=\"mbr-section content4\" plugins=\"amp-main\">\n    <mbr-parameters>\n        <!-- Block parameters controls (Blue \"Gear\" panel) -->\n        <input type=\"range\" inline title=\"Top\" name=\"paddingTop\" min=\"0\" max=\"8\" step=\"1\" value=\"0\">\n        <input type=\"range\" inline title=\"Bottom\" name=\"paddingBottom\" min=\"0\" max=\"8\" step=\"1\" value=\"0\">\n        <input type=\"color\" title=\"Background Color\" name=\"bgColor\" value=\"#ffffff\">\n        <!-- End block parameters -->\n    </mbr-parameters>\n\n    <div class=\"container\">\n        <div class=\"mbr-row mbr-justify-content-center\">\n\n            <div class=\"card mbr-col-md-12\">\n                <div class=\"mbr-text mbr-fonts-style\" mbr-theme-style=\"display-3\" data-multiline mbr-article>\n                    <blockquote><b>Nyholm L</b>, Koziol A, Bohmann K, Marcos S, Bolt-Botnen A, Aizpurua O, Gopalakrishnan S, Limborg MT, Gilbert MTP, Alberdi A. 2020. <b>Holo-omics: integrated host-microbiota multi-omics for basic and applied biological research</b>. iScience. <span style=\"font-style: normal;\">under review.</span></blockquote>\n                </div>\n            </div>\n        </div>\n    </div>\n</section>",
+          "_customHTML": "<section class=\"mbr-section content4\" plugins=\"amp-main\">\n    <mbr-parameters>\n        <!-- Block parameters controls (Blue \"Gear\" panel) -->\n        <input type=\"range\" inline title=\"Top\" name=\"paddingTop\" min=\"0\" max=\"8\" step=\"1\" value=\"0\">\n        <input type=\"range\" inline title=\"Bottom\" name=\"paddingBottom\" min=\"0\" max=\"8\" step=\"1\" value=\"0\">\n        <input type=\"color\" title=\"Background Color\" name=\"bgColor\" value=\"#ffffff\">\n        <!-- End block parameters -->\n    </mbr-parameters>\n\n    <div class=\"container\">\n        <div class=\"mbr-row mbr-justify-content-center\">\n\n            <div class=\"card mbr-col-md-12\">\n                <div class=\"mbr-text mbr-fonts-style\" mbr-theme-style=\"display-3\" data-multiline mbr-article>\n                    <blockquote><b>Nyholm L</b>, Koziol A, Bohmann K, Marcos S, Bolt-Botnen A, Aizpurua O, Gopalakrishnan S, Limborg MT, Gilbert MTP, Alberdi A. 2020. <b>Holo-omics: integrated host-microbiota multi-omics for basic and applied biological research</b>. iScience. U<span style=\"font-style: normal;\">nder review.</span></blockquote>\n                </div>\n            </div>\n        </div>\n    </div>\n</section>",
           "_anchor": "content4-24",
           "_isUserblock": true,
           "_sourceTheme": "eventamp",
@@ -1531,9 +1531,11 @@
             }
           },
           "_name": "content4",
-          "_customHTML": "<section class=\"mbr-section content4\" plugins=\"amp-main\">\n    <mbr-parameters>\n        <!-- Block parameters controls (Blue \"Gear\" panel) -->\n        <input type=\"range\" inline title=\"Top\" name=\"paddingTop\" min=\"0\" max=\"8\" step=\"1\" value=\"0\">\n        <input type=\"range\" inline title=\"Bottom\" name=\"paddingBottom\" min=\"0\" max=\"8\" step=\"1\" value=\"0\">\n        <input type=\"color\" title=\"Background Color\" name=\"bgColor\" value=\"#ffffff\">\n        <!-- End block parameters -->\n    </mbr-parameters>\n\n    <div class=\"container\">\n        <div class=\"mbr-row mbr-justify-content-center\">\n\n            <div class=\"card mbr-col-md-12\">\n                <div class=\"mbr-text mbr-fonts-style\" mbr-theme-style=\"display-3\" data-multiline mbr-article>\n                    <blockquote><b>Aizpurua O</b>, <b>Alberdi A</b>. 2020. <b>Mapping the pressure of natural predators on pest arthropods</b><span style=\"background-color: transparent;\">. Authorea preprint. doi: 10.22541/au.158981075.53963117.</span></blockquote>\n                </div>\n            </div>\n        </div>\n    </div>\n</section>",
-          "_cid": "rPlZPseKme",
-          "_anchor": "content4-8",
+          "_customHTML": "<section class=\"mbr-section content4\" plugins=\"amp-main\">\n    <mbr-parameters>\n        <!-- Block parameters controls (Blue \"Gear\" panel) -->\n        <input type=\"range\" inline title=\"Top\" name=\"paddingTop\" min=\"0\" max=\"8\" step=\"1\" value=\"0\">\n        <input type=\"range\" inline title=\"Bottom\" name=\"paddingBottom\" min=\"0\" max=\"8\" step=\"1\" value=\"0\">\n        <input type=\"color\" title=\"Background Color\" name=\"bgColor\" value=\"#ffffff\">\n        <!-- End block parameters -->\n    </mbr-parameters>\n\n    <div class=\"container\">\n        <div class=\"mbr-row mbr-justify-content-center\">\n\n            <div class=\"card mbr-col-md-12\">\n                <div class=\"mbr-text mbr-fonts-style\" mbr-theme-style=\"display-3\" data-multiline mbr-article>\n                    <blockquote>Zhipeng Li, Xiaoxu Wang, <b>Antton Alberdi</b>, Jiabo Deng, Zhenyu Zhong, Huazhe Si, Chengli Zheng, Hanlin Zhou, Jianming Wang, Yifeng Yang, Andre-Denis G Wright, Shengyong Mao, Zhigang Zhang, Le Luo Guan, Guangyu Li. 2020. <b>Comparative Microbiome Analysis Reveals the Ecological Relationships between Rumen Methanogens, Acetogens, and their Hosts</b>. Frontiers in Microbiology. <span style=\"font-style: normal;\">Accepted</span></blockquote>\n                </div>\n            </div>\n        </div>\n    </div>\n</section>",
+          "_anchor": "content4-28",
+          "_isUserblock": true,
+          "_sourceTheme": "eventamp",
+          "_cid": "s0n7EzRhV3",
           "_protectedParams": [],
           "_global": false,
           "_once": false,
@@ -1555,11 +1557,9 @@
             }
           },
           "_name": "content4",
-          "_customHTML": "<section class=\"mbr-section content4\" plugins=\"amp-main\">\n    <mbr-parameters>\n        <!-- Block parameters controls (Blue \"Gear\" panel) -->\n        <input type=\"range\" inline title=\"Top\" name=\"paddingTop\" min=\"0\" max=\"8\" step=\"1\" value=\"0\">\n        <input type=\"range\" inline title=\"Bottom\" name=\"paddingBottom\" min=\"0\" max=\"8\" step=\"1\" value=\"0\">\n        <input type=\"color\" title=\"Background Color\" name=\"bgColor\" value=\"#ffffff\">\n        <!-- End block parameters -->\n    </mbr-parameters>\n\n    <div class=\"container\">\n        <div class=\"mbr-row mbr-justify-content-center\">\n\n            <div class=\"card mbr-col-md-12\">\n                <div class=\"mbr-text mbr-fonts-style\" mbr-theme-style=\"display-3\" data-multiline mbr-article>\n                    <blockquote><b>Alberdi A</b>, Aizpurua O, Bohmann K, Gopalakrishnan S, Lynggaard C, Nielsen M, Gilbert MTP. 2019. <b>Promises and pitfalls of using high-throughput sequencing for diet analysis</b>. Molecular Ecology Resources, 19(2), 327-348.</blockquote>\n                </div>\n            </div>\n        </div>\n    </div>\n</section>",
-          "_anchor": "content4-27",
-          "_isUserblock": true,
-          "_sourceTheme": "eventamp",
-          "_cid": "rZoPSNbrDx",
+          "_customHTML": "<section class=\"mbr-section content4\" plugins=\"amp-main\">\n    <mbr-parameters>\n        <!-- Block parameters controls (Blue \"Gear\" panel) -->\n        <input type=\"range\" inline title=\"Top\" name=\"paddingTop\" min=\"0\" max=\"8\" step=\"1\" value=\"0\">\n        <input type=\"range\" inline title=\"Bottom\" name=\"paddingBottom\" min=\"0\" max=\"8\" step=\"1\" value=\"0\">\n        <input type=\"color\" title=\"Background Color\" name=\"bgColor\" value=\"#ffffff\">\n        <!-- End block parameters -->\n    </mbr-parameters>\n\n    <div class=\"container\">\n        <div class=\"mbr-row mbr-justify-content-center\">\n\n            <div class=\"card mbr-col-md-12\">\n                <div class=\"mbr-text mbr-fonts-style\" mbr-theme-style=\"display-3\" data-multiline mbr-article>\n                    <blockquote><b>Aizpurua O</b>, <b>Alberdi A</b>. 2020. <b>Mapping the pressure of natural predators on pest arthropods</b><span style=\"background-color: transparent;\">. Ecology Letters. Under review. Authorea preprint. doi: 10.22541/au.158981075.53963117.</span></blockquote>\n                </div>\n            </div>\n        </div>\n    </div>\n</section>",
+          "_cid": "rPlZPseKme",
+          "_anchor": "content4-8",
           "_protectedParams": [],
           "_global": false,
           "_once": false,
@@ -1586,6 +1586,32 @@
           "_isUserblock": true,
           "_sourceTheme": "eventamp",
           "_cid": "rWiooUs3WR",
+          "_protectedParams": [],
+          "_global": false,
+          "_once": false,
+          "_params": {}
+        },
+        {
+          "alias": false,
+          "_styles": {
+            "padding-top": "(@paddingTop * 15px)",
+            "padding-bottom": "(@paddingBottom * 15px)",
+            "background-color": "@bgColor",
+            ".card": {
+              "padding": "16px",
+              "-webkit-align-self": "center",
+              "align-self": "center"
+            },
+            ".mbr-text": {
+              "font-style": "italic"
+            }
+          },
+          "_name": "content4",
+          "_customHTML": "<section class=\"mbr-section content4\" plugins=\"amp-main\">\n    <mbr-parameters>\n        <!-- Block parameters controls (Blue \"Gear\" panel) -->\n        <input type=\"range\" inline title=\"Top\" name=\"paddingTop\" min=\"0\" max=\"8\" step=\"1\" value=\"0\">\n        <input type=\"range\" inline title=\"Bottom\" name=\"paddingBottom\" min=\"0\" max=\"8\" step=\"1\" value=\"0\">\n        <input type=\"color\" title=\"Background Color\" name=\"bgColor\" value=\"#ffffff\">\n        <!-- End block parameters -->\n    </mbr-parameters>\n\n    <div class=\"container\">\n        <div class=\"mbr-row mbr-justify-content-center\">\n\n            <div class=\"card mbr-col-md-12\">\n                <div class=\"mbr-text mbr-fonts-style\" mbr-theme-style=\"display-3\" data-multiline mbr-article>\n                    <blockquote>Alberdi A, Razgour O, Aizpurua O, Novella-Fernandez R, Aihartza J, Budinski I, Garin I, Ibáñez C, Izagirre E, Rebelo H, Russo D, Vlaschenko A, Zhelyazkova V, Zrncic V, Gilbert MTP. 2020.&nbsp;<b style=\"font-family: inherit; font-size: inherit; font-style: inherit; font-variant-ligatures: inherit; font-variant-caps: inherit; background-color: transparent;\">DNA metabarcoding and spatial modelling link diet diversification with distribution homogeneity in European bats. </b><span style=\"background-color: transparent;\">Nature Communications 11: 1154.</span></blockquote>\n                </div>\n            </div>\n        </div>\n    </div>\n</section>",
+          "_anchor": "content4-27",
+          "_isUserblock": true,
+          "_sourceTheme": "eventamp",
+          "_cid": "rZoPSNbrDx",
           "_protectedParams": [],
           "_global": false,
           "_once": false,
