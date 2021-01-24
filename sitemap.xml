@@ -6,9 +6,6 @@
 		<loc>http://alberdilab.dk/publications.html</loc>
 	</url>
 	<url>
-		<loc>http://alberdilab.dk/timeline.html</loc>
-	</url>
-	<url>
 		<loc>http://alberdilab.dk/projects.html</loc>
 	</url>
 	<url>
@@ -25,5 +22,8 @@
 	</url>
 	<url>
 		<loc>http://alberdilab.dk/page8.html</loc>
+	</url>
+	<url>
+		<loc>http://alberdilab.dk/teaching.html</loc>
 	</url>
 </urlset>
