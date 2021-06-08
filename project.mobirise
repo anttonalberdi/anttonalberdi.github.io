@@ -55,7 +55,7 @@
         "url": "https://fonts.googleapis.com/css?family=Raleway:100,200,300,400,500,600,700,800,900,100i,200i,300i,400i,500i,600i,700i,800i,900i"
       }
     ],
-    "uniqCompNum": 127,
+    "uniqCompNum": 128,
     "versionPublish": "5.2.0",
     "screenshot": "screenshot.png",
     "favicon": false,
@@ -1753,6 +1753,32 @@
           },
           "_name": "content4",
           "_sourceTheme": "eventamp",
+          "_customHTML": "<section class=\"mbr-section content4\" plugins=\"amp-main\">\n    <mbr-parameters>\n        <!-- Block parameters controls (Blue \"Gear\" panel) -->\n        <input type=\"range\" inline title=\"Top\" name=\"paddingTop\" min=\"0\" max=\"8\" step=\"1\" value=\"0\">\n        <input type=\"range\" inline title=\"Bottom\" name=\"paddingBottom\" min=\"0\" max=\"8\" step=\"1\" value=\"0\">\n        <input type=\"color\" title=\"Background Color\" name=\"bgColor\" value=\"#ffffff\">\n        <!-- End block parameters -->\n    </mbr-parameters>\n\n    <div class=\"container\">\n        <div class=\"mbr-row mbr-justify-content-center\">\n\n            <div class=\"card mbr-col-md-12\">\n                <div class=\"mbr-text mbr-fonts-style\" mbr-theme-style=\"display-3\" data-multiline mbr-article>\n                    <blockquote><span style=\"font-style: normal;\">Roberto Novella-Fernandez R, Juste J, Ibañez C, Rebelo H, Russo D, Alberdi A, Kiefer A, Graham L, Paul H, Doncaster CP, Razgour O. 2021. <b>Broad-scale patterns of geographic avoidance between species emerge in the absence of fine-scale mechanisms of coexistence</b>. Diversity and Distributions. Accepted.</span></blockquote>\n                </div>\n            </div>\n        </div>\n    </div>\n</section>",
+          "_anchor": "content4-3j",
+          "_isUserblock": true,
+          "_cid": "szJiR7mfnL",
+          "_protectedParams": [],
+          "_global": false,
+          "_once": false,
+          "_params": {}
+        },
+        {
+          "alias": false,
+          "_styles": {
+            "padding-top": "(@paddingTop * 15px)",
+            "padding-bottom": "(@paddingBottom * 15px)",
+            "background-color": "@bgColor",
+            ".card": {
+              "padding": "16px",
+              "-webkit-align-self": "center",
+              "align-self": "center"
+            },
+            ".mbr-text": {
+              "font-style": "italic"
+            }
+          },
+          "_name": "content4",
+          "_sourceTheme": "eventamp",
           "_customHTML": "<section class=\"mbr-section content4\" plugins=\"amp-main\">\n    <mbr-parameters>\n        <!-- Block parameters controls (Blue \"Gear\" panel) -->\n        <input type=\"range\" inline title=\"Top\" name=\"paddingTop\" min=\"0\" max=\"8\" step=\"1\" value=\"0\">\n        <input type=\"range\" inline title=\"Bottom\" name=\"paddingBottom\" min=\"0\" max=\"8\" step=\"1\" value=\"0\">\n        <input type=\"color\" title=\"Background Color\" name=\"bgColor\" value=\"#ffffff\">\n        <!-- End block parameters -->\n    </mbr-parameters>\n\n    <div class=\"container\">\n        <div class=\"mbr-row mbr-justify-content-center\">\n\n            <div class=\"card mbr-col-md-12\">\n                <div class=\"mbr-text mbr-fonts-style\" mbr-theme-style=\"display-3\" data-multiline mbr-article>\n                    <blockquote><span style=\"font-style: normal;\">Rampelli S, Turroni S, Debandi F, <b>Alberdi A</b>, Schnorr S, Horman C, Taddia A, Helg R, Biagi E, Brigidi P, D'Amico F; Cattani M, Candela M. 2021. <b>Bronze Age Coprolites Unveil the Buffering Role of the Gut Microbiota in the Dietary Adaptation of Dogs to Domestication</b>. iScience. Under review. doi: <a href=\"https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3850374\" class=\"text-primary\" target=\"_blank\">10.2139/ssrn.3850374</a>.</span></blockquote>\n                </div>\n            </div>\n        </div>\n    </div>\n</section>",
           "_anchor": "content4-3h",
           "_isUserblock": true,
@@ -1779,7 +1805,7 @@
           },
           "_name": "content4",
           "_sourceTheme": "eventamp",
-          "_customHTML": "<section class=\"mbr-section content4\" plugins=\"amp-main\">\n    <mbr-parameters>\n        <!-- Block parameters controls (Blue \"Gear\" panel) -->\n        <input type=\"range\" inline title=\"Top\" name=\"paddingTop\" min=\"0\" max=\"8\" step=\"1\" value=\"0\">\n        <input type=\"range\" inline title=\"Bottom\" name=\"paddingBottom\" min=\"0\" max=\"8\" step=\"1\" value=\"0\">\n        <input type=\"color\" title=\"Background Color\" name=\"bgColor\" value=\"#ffffff\">\n        <!-- End block parameters -->\n    </mbr-parameters>\n\n    <div class=\"container\">\n        <div class=\"mbr-row mbr-justify-content-center\">\n\n            <div class=\"card mbr-col-md-12\">\n                <div class=\"mbr-text mbr-fonts-style\" mbr-theme-style=\"display-3\" data-multiline mbr-article>\n                    <blockquote><b>Alberdi A</b>, <b>Martin G</b>, Aizpurua O. <b>Captivity systematically alters the composition yet not the diversity of vertebrate gut microbiomes</b><span style=\"background-color: transparent;\">. Nature Communications. Under review. doi: <a href=\"https://www.researchsquare.com/article/rs-226149/v1\" class=\"text-primary\" target=\"_blank\">10.21203/rs.3.rs-226149/v1</a>.</span></blockquote>\n                </div>\n            </div>\n        </div>\n    </div>\n</section>",
+          "_customHTML": "<section class=\"mbr-section content4\" plugins=\"amp-main\">\n    <mbr-parameters>\n        <!-- Block parameters controls (Blue \"Gear\" panel) -->\n        <input type=\"range\" inline title=\"Top\" name=\"paddingTop\" min=\"0\" max=\"8\" step=\"1\" value=\"0\">\n        <input type=\"range\" inline title=\"Bottom\" name=\"paddingBottom\" min=\"0\" max=\"8\" step=\"1\" value=\"0\">\n        <input type=\"color\" title=\"Background Color\" name=\"bgColor\" value=\"#ffffff\">\n        <!-- End block parameters -->\n    </mbr-parameters>\n\n    <div class=\"container\">\n        <div class=\"mbr-row mbr-justify-content-center\">\n\n            <div class=\"card mbr-col-md-12\">\n                <div class=\"mbr-text mbr-fonts-style\" mbr-theme-style=\"display-3\" data-multiline mbr-article>\n                    <blockquote><span style=\"font-style: normal;\"><b>Alberdi A</b>, <b>Martin G</b>, Aizpurua O. <b>Captivity systematically alters the composition yet not the diversity of vertebrate gut microbiomes</b><span style=\"background-color: transparent;\">. Nature Communications. Under review. doi: <a href=\"https://www.researchsquare.com/article/rs-226149/v1\" class=\"text-primary\" target=\"_blank\">10.21203/rs.3.rs-226149/v1</a>.</span></span></blockquote>\n                </div>\n            </div>\n        </div>\n    </div>\n</section>",
           "_anchor": "content4-39",
           "_isUserblock": true,
           "_cid": "sn0D1lf0kl",
