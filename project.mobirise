@@ -1,7 +1,7 @@
 {
   "settings": {
     "name": "www.alberdilab.dk",
-    "currentPage": "index.html",
+    "currentPage": "publications.html",
     "theme": {
       "name": "eventamp",
       "title": "EventAMP",
@@ -55,7 +55,7 @@
         "url": "https://fonts.googleapis.com/css?family=Raleway:100,200,300,400,500,600,700,800,900,100i,200i,300i,400i,500i,600i,700i,800i,900i"
       }
     ],
-    "uniqCompNum": 135,
+    "uniqCompNum": 136,
     "versionPublish": "5.5.2",
     "screenshot": "screenshot.png",
     "favicon": false,
@@ -70,7 +70,8 @@
     "cookiesAlert": false,
     "gdpr": false,
     "publishChangesOnly": true,
-    "global_header_custom": "<meta name=\"author\" content=\"Antton Alberdi\">"
+    "global_header_custom": "<meta name=\"author\" content=\"Antton Alberdi\">",
+    "mbrsiteDomain": "oonmuv4ocj"
   },
   "pages": {
     "index.html": {
@@ -1651,22 +1652,14 @@
           "_styles": {
             "padding-top": "(@paddingTop * 15px)",
             "padding-bottom": "(@paddingBottom * 15px)",
-            "background-color": "@bgColor",
-            ".card": {
-              "padding": "16px",
-              "-webkit-align-self": "center",
-              "align-self": "center"
-            },
-            ".mbr-text": {
-              "font-style": "italic"
-            }
+            "background-color": "@bgColor"
           },
-          "_name": "content4",
+          "_name": "content3",
           "_sourceTheme": "eventamp",
-          "_customHTML": "<section class=\"mbr-section content4\" plugins=\"amp-main\">\n    <mbr-parameters>\n        <!-- Block parameters controls (Blue \"Gear\" panel) -->\n        <input type=\"range\" inline title=\"Top\" name=\"paddingTop\" min=\"0\" max=\"8\" step=\"1\" value=\"0\">\n        <input type=\"range\" inline title=\"Bottom\" name=\"paddingBottom\" min=\"0\" max=\"8\" step=\"1\" value=\"0\">\n        <input type=\"color\" title=\"Background Color\" name=\"bgColor\" value=\"#ffffff\">\n        <!-- End block parameters -->\n    </mbr-parameters>\n\n    <div class=\"container\">\n        <div class=\"mbr-row mbr-justify-content-center\">\n\n            <div class=\"card mbr-col-md-12\">\n                <div class=\"mbr-text mbr-fonts-style\" mbr-theme-style=\"display-3\" data-multiline mbr-article>\n                    <blockquote><span style=\"font-style: normal;\"><b>Koziol A, Odriozola I, Nyholm L, Leonard A, </b>San José C, Pauperio J, Ferreira C, Hansen AJ,<b> Aizpurua O, </b>Gilbert MTP &amp;<b> Alberdi A</b>. 2022. Captivity alters the gut microbiota of two small mammals regardless of housing them under natural-like conditions<span style=\"background-color: transparent;\">. <b>Scientific Reports</b>. Under review.</span></span></blockquote>\n                </div>\n            </div>\n        </div>\n    </div>\n</section>",
-          "_anchor": "content4-3q",
+          "_customHTML": "<section class=\"content3 mbr-section\" plugins=\"amp-main\">\n\n    <mbr-parameters>\n        <!-- Block parameters controls (Blue \"Gear\" panel) -->\n        <input type=\"range\" inline title=\"Top\" name=\"paddingTop\" min=\"0\" max=\"8\" step=\"1\" value=\"0\">\n        <input type=\"range\" inline title=\"Bottom\" name=\"paddingBottom\" min=\"0\" max=\"8\" step=\"1\" value=\"0\">\n        <input type=\"color\" title=\"Background Color\" name=\"bgColor\" value=\"#ffffff\">\n        <!-- End block parameters -->\n    </mbr-parameters>\n\n    <div class=\"container\">\n        <div class=\"mbr-row mbr-justify-content-center\">\n            <div class=\"mbr-col-sm-12 mbr-col-md-12 mbr-col-lg-12\">\n\n                <p class=\"mbr-text mbr-fonts-style\" mbr-theme-style=\"display-2\" data-app-selector=\".mbr-text\" data-multiline mbr-article>Under review<br></p>\n            </div>\n        </div>\n    </div>\n</section>",
+          "_anchor": "content3-3r",
           "_isUserblock": true,
-          "_cid": "sWoz3cSX5Y",
+          "_cid": "sX95kYMquB",
           "_protectedParams": [],
           "_global": false,
           "_once": false,
@@ -1689,10 +1682,10 @@
           },
           "_name": "content4",
           "_sourceTheme": "eventamp",
-          "_customHTML": "<section class=\"mbr-section content4\" plugins=\"amp-main\">\n    <mbr-parameters>\n        <!-- Block parameters controls (Blue \"Gear\" panel) -->\n        <input type=\"range\" inline title=\"Top\" name=\"paddingTop\" min=\"0\" max=\"8\" step=\"1\" value=\"0\">\n        <input type=\"range\" inline title=\"Bottom\" name=\"paddingBottom\" min=\"0\" max=\"8\" step=\"1\" value=\"0\">\n        <input type=\"color\" title=\"Background Color\" name=\"bgColor\" value=\"#ffffff\">\n        <!-- End block parameters -->\n    </mbr-parameters>\n\n    <div class=\"container\">\n        <div class=\"mbr-row mbr-justify-content-center\">\n\n            <div class=\"card mbr-col-md-12\">\n                <div class=\"mbr-text mbr-fonts-style\" mbr-theme-style=\"display-3\" data-multiline mbr-article>\n                    <blockquote><span style=\"font-style: normal;\"><b>Marcos S</b>, Parejo M, Estonba A, <b>Alberdi </b>A. 2022 <b>Recovering high-quality host genomes from gut metagenomic data through genotype imputation</b>. Advanced Genetics. Under review.</span></blockquote>\n                </div>\n            </div>\n        </div>\n    </div>\n</section>",
-          "_anchor": "content4-3n",
+          "_customHTML": "<section class=\"mbr-section content4\" plugins=\"amp-main\">\n    <mbr-parameters>\n        <!-- Block parameters controls (Blue \"Gear\" panel) -->\n        <input type=\"range\" inline title=\"Top\" name=\"paddingTop\" min=\"0\" max=\"8\" step=\"1\" value=\"0\">\n        <input type=\"range\" inline title=\"Bottom\" name=\"paddingBottom\" min=\"0\" max=\"8\" step=\"1\" value=\"0\">\n        <input type=\"color\" title=\"Background Color\" name=\"bgColor\" value=\"#ffffff\">\n        <!-- End block parameters -->\n    </mbr-parameters>\n\n    <div class=\"container\">\n        <div class=\"mbr-row mbr-justify-content-center\">\n\n            <div class=\"card mbr-col-md-12\">\n                <div class=\"mbr-text mbr-fonts-style\" mbr-theme-style=\"display-3\" data-multiline mbr-article>\n                    <blockquote><span style=\"font-style: normal;\"><b>Koziol A, Odriozola I, Nyholm L, Leonard A, </b>San José C, Pauperio J, Ferreira C, Hansen AJ,<b> Aizpurua O, </b>Gilbert MTP &amp;<b> Alberdi A</b>. 2022. Captivity alters the gut microbiota of two small mammals regardless of housing them under natural-like conditions<span style=\"background-color: transparent;\">. <b>Scientific Reports</b>. Under review.</span></span></blockquote>\n                </div>\n            </div>\n        </div>\n    </div>\n</section>",
+          "_anchor": "content4-3q",
           "_isUserblock": true,
-          "_cid": "sMsFNO5u47",
+          "_cid": "sWoz3cSX5Y",
           "_protectedParams": [],
           "_global": false,
           "_once": false,
@@ -1733,7 +1726,33 @@
           },
           "_name": "content4",
           "_sourceTheme": "eventamp",
-          "_customHTML": "<section class=\"mbr-section content4\" plugins=\"amp-main\">\n    <mbr-parameters>\n        <!-- Block parameters controls (Blue \"Gear\" panel) -->\n        <input type=\"range\" inline title=\"Top\" name=\"paddingTop\" min=\"0\" max=\"8\" step=\"1\" value=\"0\">\n        <input type=\"range\" inline title=\"Bottom\" name=\"paddingBottom\" min=\"0\" max=\"8\" step=\"1\" value=\"0\">\n        <input type=\"color\" title=\"Background Color\" name=\"bgColor\" value=\"#ffffff\">\n        <!-- End block parameters -->\n    </mbr-parameters>\n\n    <div class=\"container\">\n        <div class=\"mbr-row mbr-justify-content-center\">\n\n            <div class=\"card mbr-col-md-12\">\n                <div class=\"mbr-text mbr-fonts-style\" mbr-theme-style=\"display-3\" data-multiline mbr-article>\n                    <blockquote><span style=\"font-style: normal;\"><b>Nyholm L, Odriozola I, Martin G, Aizpurua O &amp; Alberdi A</b>. 2021. <b>Gut microbiota differences between paired mucus and digesta samples in three small species of fish</b>. PeerJ. Accepted.</span></blockquote>\n                </div>\n            </div>\n        </div>\n    </div>\n</section>",
+          "_customHTML": "<section class=\"mbr-section content4\" plugins=\"amp-main\">\n    <mbr-parameters>\n        <!-- Block parameters controls (Blue \"Gear\" panel) -->\n        <input type=\"range\" inline title=\"Top\" name=\"paddingTop\" min=\"0\" max=\"8\" step=\"1\" value=\"0\">\n        <input type=\"range\" inline title=\"Bottom\" name=\"paddingBottom\" min=\"0\" max=\"8\" step=\"1\" value=\"0\">\n        <input type=\"color\" title=\"Background Color\" name=\"bgColor\" value=\"#ffffff\">\n        <!-- End block parameters -->\n    </mbr-parameters>\n\n    <div class=\"container\">\n        <div class=\"mbr-row mbr-justify-content-center\">\n\n            <div class=\"card mbr-col-md-12\">\n                <div class=\"mbr-text mbr-fonts-style\" mbr-theme-style=\"display-3\" data-multiline mbr-article>\n                    <blockquote><span style=\"font-style: normal;\"><b>Marcos S</b>, Parejo M, Estonba A, <b>Alberdi </b>A. 2022 <b>Recovering high-quality host genomes from gut metagenomic data through genotype imputation</b>. Advanced Genetics. Accepted.</span></blockquote>\n                </div>\n            </div>\n        </div>\n    </div>\n</section>",
+          "_anchor": "content4-3n",
+          "_isUserblock": true,
+          "_cid": "sMsFNO5u47",
+          "_protectedParams": [],
+          "_global": false,
+          "_once": false,
+          "_params": {}
+        },
+        {
+          "alias": false,
+          "_styles": {
+            "padding-top": "(@paddingTop * 15px)",
+            "padding-bottom": "(@paddingBottom * 15px)",
+            "background-color": "@bgColor",
+            ".card": {
+              "padding": "16px",
+              "-webkit-align-self": "center",
+              "align-self": "center"
+            },
+            ".mbr-text": {
+              "font-style": "italic"
+            }
+          },
+          "_name": "content4",
+          "_sourceTheme": "eventamp",
+          "_customHTML": "<section class=\"mbr-section content4\" plugins=\"amp-main\">\n    <mbr-parameters>\n        <!-- Block parameters controls (Blue \"Gear\" panel) -->\n        <input type=\"range\" inline title=\"Top\" name=\"paddingTop\" min=\"0\" max=\"8\" step=\"1\" value=\"0\">\n        <input type=\"range\" inline title=\"Bottom\" name=\"paddingBottom\" min=\"0\" max=\"8\" step=\"1\" value=\"0\">\n        <input type=\"color\" title=\"Background Color\" name=\"bgColor\" value=\"#ffffff\">\n        <!-- End block parameters -->\n    </mbr-parameters>\n\n    <div class=\"container\">\n        <div class=\"mbr-row mbr-justify-content-center\">\n\n            <div class=\"card mbr-col-md-12\">\n                <div class=\"mbr-text mbr-fonts-style\" mbr-theme-style=\"display-3\" data-multiline mbr-article>\n                    <blockquote><span style=\"font-style: normal;\"><b>Nyholm L, Odriozola I, Martin G, Aizpurua O &amp; Alberdi A</b>. 2022. <a href=\"https://peerj.com/articles/12992/\" class=\"text-primary\" target=\"_blank\"><b>Gut microbiota differences between paired mucus and digesta samples in three small species of fish</b></a>. <b>PeerJ</b>&nbsp;10:e12992.</span></blockquote>\n                </div>\n            </div>\n        </div>\n    </div>\n</section>",
           "_anchor": "content4-3o",
           "_isUserblock": true,
           "_cid": "sNFBQJNiyr",
