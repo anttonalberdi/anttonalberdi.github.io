@@ -6,13 +6,7 @@
 		<loc>http://alberdilab.dk/publications.html</loc>
 	</url>
 	<url>
-		<loc>http://alberdilab.dk/projects.html</loc>
-	</url>
-	<url>
 		<loc>http://alberdilab.dk/members.html</loc>
-	</url>
-	<url>
-		<loc>http://alberdilab.dk/research.html</loc>
 	</url>
 	<url>
 		<loc>http://alberdilab.dk/joinus.html</loc>
@@ -21,12 +15,21 @@
 		<loc>http://alberdilab.dk/antton_alberdi.html</loc>
 	</url>
 	<url>
-		<loc>http://alberdilab.dk/page8.html</loc>
-	</url>
-	<url>
 		<loc>http://alberdilab.dk/teaching.html</loc>
 	</url>
 	<url>
 		<loc>http://alberdilab.dk/zoom.html</loc>
+	</url>
+	<url>
+		<loc>http://alberdilab.dk/projects_retired.html</loc>
+	</url>
+	<url>
+		<loc>http://alberdilab.dk/research-retired.html</loc>
+	</url>
+	<url>
+		<loc>http://alberdilab.dk/research.html</loc>
+	</url>
+	<url>
+		<loc>http://alberdilab.dk/page11.html</loc>
 	</url>
 </urlset>
