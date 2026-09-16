@@ -60,8 +60,20 @@ function formerMarkup(member) {
 }
 
 function visitorMarkup(member) {
-  const detail = member.biosketch || member.position;
-  return `<li><strong>${escapeHtml(member.name)}</strong><span>${escapeHtml(detail)}</span></li>`;
+  const years = member.startYear && member.endYear
+    ? `${member.startYear}–${member.endYear}`
+    : member.startYear
+      ? `From ${member.startYear}`
+      : member.endYear
+        ? `Until ${member.endYear}`
+        : "";
+  const yearMarkup = years ? `<span class="visitor-item__years">${escapeHtml(years)}</span>` : "";
+  return `<li class="visitor-item">
+    <strong>${escapeHtml(member.name)}</strong>
+    <div class="visitor-item__details">
+      <div class="visitor-item__meta"><span class="visitor-item__role">${escapeHtml(member.position)}</span>${yearMarkup}</div>
+    </div>
+  </li>`;
 }
 
 async function loadMembers() {

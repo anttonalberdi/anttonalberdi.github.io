@@ -2704,34 +2704,71 @@ html.reveal-ready [data-reveal].is-visible {
 }
 
 .visitor-list {
-  display: grid;
   margin: 0;
   padding: 0;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1px;
-  background: rgba(255, 253, 248, 0.18);
-  border: 1px solid rgba(255, 253, 248, 0.18);
+  border-top: 1px solid rgba(255, 253, 248, 0.2);
   list-style: none;
 }
 
 .visitor-list li {
-  min-height: 160px;
-  padding: 28px;
-  background: var(--night);
+  display: grid;
+  padding: 23px 0;
+  border-bottom: 1px solid rgba(255, 253, 248, 0.2);
+  grid-template-columns: minmax(190px, 0.65fr) 1fr;
+  gap: 28px;
 }
 
 .visitor-list strong {
-  display: block;
-  margin-bottom: 10px;
+  margin: 0;
   color: var(--white);
-  font-size: 0.9rem;
+  font-size: 1rem;
+  letter-spacing: -0.025em;
 }
 
-.visitor-list span {
+.visitor-list > li > span {
   color: rgba(255, 253, 248, 0.56);
   font-family: "Lora", Georgia, serif;
   font-size: 0.78rem;
   font-style: italic;
+}
+
+.visitor-item__details {
+  display: grid;
+  gap: 12px;
+}
+
+.visitor-item__meta {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.visitor-item__role {
+  display: inline-flex;
+  align-items: center;
+  min-height: 28px;
+  padding: 5px 10px;
+  border: 1px solid color-mix(in srgb, var(--gold) 52%, transparent);
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--gold) 15%, transparent);
+  color: var(--gold);
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.visitor-item__years {
+  color: rgba(255, 253, 248, 0.62);
+  font-size: 0.7rem;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.04em;
+}
+
+.visitor-layout .alumni-intro .page-hero__lede {
+  color: rgba(255, 253, 248, 0.64);
 }
 
 /* Publication archive */
@@ -3949,7 +3986,8 @@ html.reveal-ready [data-reveal].is-visible {
     padding: 24px;
   }
 
-  .alumni-item {
+  .alumni-item,
+  .visitor-list li {
     grid-template-columns: 1fr;
     gap: 8px;
   }
