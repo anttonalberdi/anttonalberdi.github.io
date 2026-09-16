@@ -101,6 +101,8 @@ are ignored.
 | `Position` | Required | Role or job title; `Visitor` selects the visitor section |
 | `Picture` | Optional | Airtable image attachment; active members without one use initials |
 | `Status` | Required | `Active` or `Former member` determines page placement |
+| `Start date` | Optional | Starting year shown for former members |
+| `End date` | Optional | Ending year shown for former members |
 
 The workflow downloads each `Picture` attachment into
 `assets/images/people/` and stores the local path in `members.json`. This avoids
@@ -115,9 +117,10 @@ Repository variables for People:
   in the table is exported.
 - `AIRTABLE_MIN_MEMBERS`: optional safety threshold, defaulting to `5`.
 - `AIRTABLE_FIELD_MEMBER_NAME`, `AIRTABLE_FIELD_MEMBER_BIOSKETCH`,
-  `AIRTABLE_FIELD_MEMBER_POSITION`, `AIRTABLE_FIELD_MEMBER_PICTURE`, and
-  `AIRTABLE_FIELD_MEMBER_STATUS`: optional field-name or field-ID overrides; the
-  five names above are used by default.
+  `AIRTABLE_FIELD_MEMBER_POSITION`, `AIRTABLE_FIELD_MEMBER_PICTURE`,
+  `AIRTABLE_FIELD_MEMBER_STATUS`, `AIRTABLE_FIELD_MEMBER_START_DATE`, and
+  `AIRTABLE_FIELD_MEMBER_END_DATE`: optional field-name or field-ID overrides;
+  the names above are used by default.
 
 The workflow runs daily at 04:17 UTC and can be started immediately from the
 repository's **Actions → Deploy site → Run workflow** menu. Normal pushes deploy

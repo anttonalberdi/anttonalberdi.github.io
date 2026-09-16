@@ -18,6 +18,13 @@ const FIELD_ALIASES = {
   position: ["Position"],
   picture: ["Picture"],
   status: ["Status"],
+  startDate: ["Start date", "Start Date"],
+  endDate: ["End date", "End Date"],
+};
+
+const FIELD_VARIABLE_SUFFIXES = {
+  startDate: "START_DATE",
+  endDate: "END_DATE",
 };
 
 const MIME_EXTENSIONS = new Map([
@@ -29,7 +36,8 @@ const MIME_EXTENSIONS = new Map([
 ]);
 
 function configuredAliases(key, environment = process.env) {
-  const configured = environment[`AIRTABLE_FIELD_MEMBER_${key.toUpperCase()}`]?.trim();
+  const suffix = FIELD_VARIABLE_SUFFIXES[key] ?? key.toUpperCase();
+  const configured = environment[`AIRTABLE_FIELD_MEMBER_${suffix}`]?.trim();
   return configured ? [configured] : FIELD_ALIASES[key];
 }
 
@@ -48,6 +56,11 @@ function toText(value) {
   if (Array.isArray(value)) return value.map(toText).filter(Boolean).join(", ");
   if (typeof value === "object") return toText(value.name ?? value.text ?? "");
   return String(value).trim();
+}
+
+function toYear(value) {
+  const match = toText(value).match(/\b(?:19|20)\d{2}\b/);
+  return match ? Number(match[0]) : null;
 }
 
 function choosePicture(value) {
@@ -108,6 +121,8 @@ export function normaliseMemberRecords(records, environment = process.env) {
     const position = toText(fieldValue(fields, "position", environment));
     const picture = choosePicture(fieldValue(fields, "picture", environment));
     const section = memberSection(fields, environment);
+    const startYear = toYear(fieldValue(fields, "startDate", environment));
+    const endYear = toYear(fieldValue(fields, "endDate", environment));
     const problems = [];
 
     if (!record?.id) problems.push("missing Airtable record ID");
@@ -138,7 +153,7 @@ export function normaliseMemberRecords(records, environment = process.env) {
       }
     }
 
-    members.push({ id: record.id, name, biosketch, position, section, picture });
+    members.push({ id: record.id, name, biosketch, position, section, startYear, endYear, picture });
   });
 
   if (issues.length) throw new Error(`Incomplete Airtable member profiles:\n- ${issues.join("\n- ")}`);
@@ -173,6 +188,8 @@ async function downloadPicture(member, { imageDirectory, imageUrlPrefix, fetchIm
     biosketch: member.biosketch,
     position: member.position,
     section: member.section,
+    startYear: member.startYear,
+    endYear: member.endYear,
     picture: `${imageUrlPrefix.replace(/\/$/, "")}/${filename}`,
     pictureWidth: member.picture.width,
     pictureHeight: member.picture.height,
@@ -216,6 +233,8 @@ export async function buildMembers(
         biosketch: member.biosketch,
         position: member.position,
         section: member.section,
+        startYear: member.startYear,
+        endYear: member.endYear,
       });
     }
   }
@@ -228,9 +247,10 @@ export async function buildMembers(
 }
 
 export function readMemberConfig(environment = process.env) {
-  const configuredFieldNames = Object.keys(FIELD_ALIASES).map((key) =>
-    environment[`AIRTABLE_FIELD_MEMBER_${key.toUpperCase()}`]?.trim(),
-  );
+  const configuredFieldNames = Object.keys(FIELD_ALIASES).map((key) => {
+    const suffix = FIELD_VARIABLE_SUFFIXES[key] ?? key.toUpperCase();
+    return environment[`AIRTABLE_FIELD_MEMBER_${suffix}`]?.trim();
+  });
   const config = {
     token: environment.AIRTABLE_ACCESS_TOKEN?.trim(),
     baseId: environment.AIRTABLE_BASE_ID?.trim(),

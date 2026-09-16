@@ -48,6 +48,8 @@ test("normalises member fields returned by Airtable ID", () => {
     AIRTABLE_FIELD_MEMBER_POSITION: "fldPosition",
     AIRTABLE_FIELD_MEMBER_PICTURE: "fldPicture",
     AIRTABLE_FIELD_MEMBER_STATUS: "fldStatus",
+    AIRTABLE_FIELD_MEMBER_START_DATE: "fldStart",
+    AIRTABLE_FIELD_MEMBER_END_DATE: "fldEnd",
   };
   const fields = Object.fromEntries(
     Object.entries(SAMPLE_RECORD.fields).map(([name, value]) => [
@@ -55,9 +57,13 @@ test("normalises member fields returned by Airtable ID", () => {
       value,
     ]),
   );
+  fields.fldStart = "2019-06-15";
+  fields.fldEnd = "2024-02-01";
   const [member] = normaliseMemberRecords([{ ...SAMPLE_RECORD, fields }], environment);
   assert.equal(member.name, "Ada Example");
   assert.equal(member.position, "Postdoc");
+  assert.equal(member.startYear, 2019);
+  assert.equal(member.endYear, 2024);
 });
 
 test("selects the three website roster sections by status and position", () => {
@@ -113,10 +119,20 @@ test("allows an active member without a picture", () => {
 
 test("normalises former members and visitors without pictures", () => {
   const members = normaliseMemberRecords([
-    { id: "recFormer", fields: { Name: "Former", Position: "Postdoc", Status: "Former member" } },
+    {
+      id: "recFormer",
+      fields: {
+        Name: "Former",
+        Position: "Postdoc",
+        Status: "Former member",
+        "Start date": "2020-01-01",
+        "End date": "2025-12-31",
+      },
+    },
     { id: "recVisitor", fields: { Name: "Visitor", Position: "Visitor", Status: "Former member" } },
   ]);
   assert.deepEqual(members.map(({ section }) => section), ["former", "visitor"]);
+  assert.deepEqual([members[0].startYear, members[0].endYear], [2020, 2025]);
 });
 
 test("downloads portraits and removes only stale generated portraits", async () => {

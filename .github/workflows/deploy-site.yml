@@ -69,6 +69,8 @@ jobs:
           AIRTABLE_FIELD_MEMBER_POSITION: ${{ vars.AIRTABLE_FIELD_MEMBER_POSITION }}
           AIRTABLE_FIELD_MEMBER_PICTURE: ${{ vars.AIRTABLE_FIELD_MEMBER_PICTURE }}
           AIRTABLE_FIELD_MEMBER_STATUS: ${{ vars.AIRTABLE_FIELD_MEMBER_STATUS }}
+          AIRTABLE_FIELD_MEMBER_START_DATE: ${{ vars.AIRTABLE_FIELD_MEMBER_START_DATE }}
+          AIRTABLE_FIELD_MEMBER_END_DATE: ${{ vars.AIRTABLE_FIELD_MEMBER_END_DATE }}
         run: node scripts/sync-members.mjs
 
       - name: Save updated Airtable snapshots
