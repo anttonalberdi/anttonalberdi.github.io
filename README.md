@@ -91,13 +91,13 @@ variable, such as `AIRTABLE_FIELD_TITLE`, `AIRTABLE_FIELD_AUTHORS`, or
 The member exporter reads the table named by `AIRTABLE_MEMBERS_TABLE`. Rows with
 none of the three profile fields (`Biosketch`, `Position`, or `Picture`) are
 treated as unrelated records and ignored, which allows the roster to live in a
-shared table. Once any profile field is present, the exporter requires all four
-of these fields:
+shared table. Once any profile field is present, the exporter requires the
+name, position, and picture fields:
 
 | Column | Requirement | Purpose |
 | --- | --- | --- |
 | `Name` | Required | Display name |
-| `Biosketch` | Required | Short biography shown on the card |
+| `Biosketch` | Optional | Short biography shown on the card |
 | `Position` | Required | Role or job title |
 | `Picture` | Required | Airtable image attachment |
 

@@ -104,7 +104,6 @@ export function normaliseMemberRecords(records, environment = process.env) {
 
     if (!record?.id) problems.push("missing Airtable record ID");
     if (!name) problems.push("missing Name");
-    if (!biosketch) problems.push("missing Biosketch");
     if (!position) problems.push("missing Position");
     if (!picture?.url) problems.push("missing Picture");
     if (problems.length) {

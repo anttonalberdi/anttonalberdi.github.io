@@ -69,8 +69,15 @@ test("selects website profiles from a shared Airtable table", () => {
 test("rejects an incomplete member", () => {
   assert.throws(
     () => normaliseMemberRecords([{ id: "recBad", fields: { Name: "Incomplete" } }]),
-    /missing Biosketch, missing Position, missing Picture\. Available fields: Name\./,
+    /missing Position, missing Picture\. Available fields: Name\./,
   );
+});
+
+test("allows a member profile without a biosketch", () => {
+  const fields = { ...SAMPLE_RECORD.fields };
+  delete fields.Biosketch;
+  const [member] = normaliseMemberRecords([{ ...SAMPLE_RECORD, fields }]);
+  assert.equal(member.biosketch, "");
 });
 
 test("downloads portraits and removes only stale generated portraits", async () => {
