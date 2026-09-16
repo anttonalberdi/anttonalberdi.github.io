@@ -136,7 +136,14 @@ export function normalisePublications(records, environment = process.env) {
   });
 }
 
-export async function fetchAllRecords({ token, baseId, table, view, fetchImpl = fetch }) {
+export async function fetchAllRecords({
+  token,
+  baseId,
+  table,
+  view,
+  returnFieldsByFieldId = false,
+  fetchImpl = fetch,
+}) {
   const records = [];
   let offset;
 
@@ -144,6 +151,7 @@ export async function fetchAllRecords({ token, baseId, table, view, fetchImpl = 
     const url = new URL(`${AIRTABLE_API_ROOT}/${encodeURIComponent(baseId)}/${encodeURIComponent(table)}`);
     url.searchParams.set("pageSize", "100");
     if (view) url.searchParams.set("view", view);
+    if (returnFieldsByFieldId) url.searchParams.set("returnFieldsByFieldId", "true");
     if (offset) url.searchParams.set("offset", offset);
 
     const response = await fetchImpl(url, {

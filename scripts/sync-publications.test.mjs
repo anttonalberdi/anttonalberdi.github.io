@@ -52,6 +52,7 @@ test("follows Airtable pagination", async () => {
     baseId: "appBase",
     table: "Publications",
     view: "Published",
+    returnFieldsByFieldId: true,
     fetchImpl: async (url) => {
       requestedUrls.push(url);
       return {
@@ -63,6 +64,7 @@ test("follows Airtable pagination", async () => {
 
   assert.deepEqual(records.map(({ id }) => id), ["rec1", "rec2"]);
   assert.equal(requestedUrls[0].searchParams.get("view"), "Published");
+  assert.equal(requestedUrls[0].searchParams.get("returnFieldsByFieldId"), "true");
   assert.equal(requestedUrls[1].searchParams.get("offset"), "next-page");
 });
 

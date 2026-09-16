@@ -35,6 +35,24 @@ test("normalises the four member fields and chooses the full thumbnail", () => {
   assert.equal(member.picture.width, 900);
 });
 
+test("normalises member fields returned by Airtable ID", () => {
+  const environment = {
+    AIRTABLE_FIELD_MEMBER_NAME: "fldName",
+    AIRTABLE_FIELD_MEMBER_BIOSKETCH: "fldBio",
+    AIRTABLE_FIELD_MEMBER_POSITION: "fldPosition",
+    AIRTABLE_FIELD_MEMBER_PICTURE: "fldPicture",
+  };
+  const fields = Object.fromEntries(
+    Object.entries(SAMPLE_RECORD.fields).map(([name, value]) => [
+      environment[`AIRTABLE_FIELD_MEMBER_${name.toUpperCase()}`],
+      value,
+    ]),
+  );
+  const [member] = normaliseMemberRecords([{ ...SAMPLE_RECORD, fields }], environment);
+  assert.equal(member.name, "Ada Example");
+  assert.equal(member.position, "Postdoc");
+});
+
 test("rejects an incomplete member", () => {
   assert.throws(
     () => normaliseMemberRecords([{ id: "recBad", fields: { Name: "Incomplete" } }]),
@@ -76,4 +94,13 @@ test("validates member configuration", () => {
   assert.equal(config.table, "People");
   assert.equal(config.view, "");
   assert.equal(config.minimum, 5);
+  assert.equal(config.returnFieldsByFieldId, false);
+
+  const fieldIdConfig = readMemberConfig({
+    AIRTABLE_ACCESS_TOKEN: "pat",
+    AIRTABLE_BASE_ID: "app",
+    AIRTABLE_MEMBERS_TABLE: "People",
+    AIRTABLE_FIELD_MEMBER_NAME: "fldName",
+  });
+  assert.equal(fieldIdConfig.returnFieldsByFieldId, true);
 });

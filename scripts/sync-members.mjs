@@ -187,12 +187,16 @@ export async function buildMembers(
 }
 
 export function readMemberConfig(environment = process.env) {
+  const configuredFieldNames = Object.keys(FIELD_ALIASES).map((key) =>
+    environment[`AIRTABLE_FIELD_MEMBER_${key.toUpperCase()}`]?.trim(),
+  );
   const config = {
     token: environment.AIRTABLE_ACCESS_TOKEN?.trim(),
     baseId: environment.AIRTABLE_BASE_ID?.trim(),
     table: environment.AIRTABLE_MEMBERS_TABLE?.trim(),
     view: environment.AIRTABLE_MEMBERS_VIEW?.trim() || "",
     minimum: Number(environment.AIRTABLE_MIN_MEMBERS?.trim() || 5),
+    returnFieldsByFieldId: configuredFieldNames.some((fieldName) => /^fld[a-zA-Z0-9]+$/.test(fieldName ?? "")),
   };
 
   if (!config.token) throw new Error("AIRTABLE_ACCESS_TOKEN is required.");
