@@ -6,6 +6,11 @@ const visitorList = document.querySelector("[data-visitors]");
 const count = document.querySelector("[data-member-count]");
 
 const profileLinks = new Map([["Antton Alberdi", "antton_alberdi.html"]]);
+const nameCollator = new Intl.Collator("en", { sensitivity: "base" });
+
+function byName(a, b) {
+  return nameCollator.compare(a.name, b.name);
+}
 
 function memberMarkup(member) {
   const profile = profileLinks.get(member.name);
@@ -52,9 +57,9 @@ async function loadMembers() {
     const collection = await loadCollectionDocument("members");
     if (collection.source !== "airtable" || !collection.complete) return;
     if (!collection.records.length) throw new Error("The Airtable member list is empty.");
-    const active = collection.records.filter(({ section }) => section === "active");
-    const former = collection.records.filter(({ section }) => section === "former");
-    const visitors = collection.records.filter(({ section }) => section === "visitor");
+    const active = collection.records.filter(({ section }) => section === "active").sort(byName);
+    const former = collection.records.filter(({ section }) => section === "former").sort(byName);
+    const visitors = collection.records.filter(({ section }) => section === "visitor").sort(byName);
     if (!active.length) throw new Error("The Airtable active-member list is empty.");
     grid.innerHTML = active.map(memberMarkup).join("");
     formerGrid.innerHTML = former.map(formerMarkup).join("");
