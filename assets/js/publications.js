@@ -74,7 +74,9 @@ function publicationMarkup(publication) {
     ? `<strong>${escapeHtml(publication.title)}</strong>`
     : `<a href="${escapeHtml(href)}" target="_blank" rel="noopener noreferrer"><strong>${escapeHtml(publication.title)}</strong></a>`;
   const year = publication.year ? `${escapeHtml(publication.year)}. ` : "";
-  const journal = publication.journal ? ` <strong>${escapeHtml(publication.journal)}</strong>.` : "";
+  const journal = publication.journal
+    ? ` <strong>${escapeHtml(publication.journal)}</strong>${publication.volume ? ` ${escapeHtml(publication.volume)}` : ""}.`
+    : "";
   const doiText = doi ? ` doi: ${escapeHtml(doi)}.` : "";
   return `<p>${escapeHtml(publication.authors)}. ${year}${linkedTitle}.${journal}${doiText}</p>`;
 }

@@ -11,7 +11,9 @@ test("normalises and sorts published and under-review records", () => {
         Title: "Published paper",
         Authors: "A Author, B Author",
         Year: 2025,
-        Journal: "Example Journal",
+        Journal: "recRelationalJournal",
+        fldInfTbKuqBGqBiX: "Example Journal",
+        fldprcJCBsz2J5m7z: "12(3)",
         DOI: "https://doi.org/10.1234/example",
         Order: 2,
       },
@@ -32,6 +34,8 @@ test("normalises and sorts published and under-review records", () => {
   assert.equal(result[0].featured, false);
   assert.equal(result[1].doi, "10.1234/example");
   assert.equal(result[1].url, "https://doi.org/10.1234/example");
+  assert.equal(result[1].journal, "Example Journal");
+  assert.equal(result[1].volume, "12(3)");
 });
 
 test("rejects incomplete records", () => {

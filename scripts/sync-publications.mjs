@@ -6,12 +6,16 @@ import { pathToFileURL } from "node:url";
 
 const AIRTABLE_API_ROOT = "https://api.airtable.com/v0";
 const DEFAULT_OUTPUT = "assets/data/publications.json";
+const FLAT_JOURNAL_FIELD_ID = "fldInfTbKuqBGqBiX";
+const VOLUME_AND_NUMBER_FIELD_ID = "fldprcJCBsz2J5m7z";
 
 const FIELD_ALIASES = {
   title: ["Title", "Publication title", "Publication"],
   authors: ["Authors", "Author(s)", "Author"],
   year: ["Year", "Publication year"],
-  journal: ["Journal", "Venue"],
+  // Prefer the flat journal field: the relational Journal field contains record IDs.
+  journal: [FLAT_JOURNAL_FIELD_ID, "Journal", "Venue"],
+  volume: [VOLUME_AND_NUMBER_FIELD_ID, "Volume", "Volume and number", "Volume and issue"],
   doi: ["DOI", "Doi"],
   url: ["URL", "Link", "Publication URL"],
   status: ["Status", "Publication status"],
@@ -24,6 +28,11 @@ const FIELD_ALIASES = {
 function configuredAliases(key, environment = process.env) {
   const variable = `AIRTABLE_FIELD_${key.toUpperCase()}`;
   const configured = environment[variable]?.trim();
+  // These two fields are deliberately fixed to their Airtable IDs so a relational
+  // field with a similarly named label cannot replace the publication metadata.
+  if (key === "journal" || key === "volume") {
+    return [...new Set([FIELD_ALIASES[key][0], configured, ...FIELD_ALIASES[key]].filter(Boolean))];
+  }
   return configured ? [configured] : FIELD_ALIASES[key];
 }
 
@@ -114,6 +123,7 @@ export function normalisePublications(records, environment = process.env) {
       title,
       authors,
       journal: toText(fieldValue(fields, "journal", environment)),
+      volume: toText(fieldValue(fields, "volume", environment)),
       doi,
       url: suppliedUrl || (doi ? `https://doi.org/${doi}` : ""),
       featured: hidden ? false : toBoolean(featuredValue, true),
@@ -216,7 +226,19 @@ async function main() {
   const config = readConfig();
   const outputArgument = process.argv.find((argument) => argument.startsWith("--output="));
   const outputPath = resolve(outputArgument?.slice("--output=".length) || DEFAULT_OUTPUT);
-  const records = await fetchAllRecords(config);
+  // Airtable normally keys returned fields by label, but labels cannot distinguish
+  // the relational Journal field from the flat journal field requested above.
+  // Merge a second, ID-keyed response so the two fixed field IDs always win while
+  // preserving the existing label/override support for all other fields.
+  const [namedRecords, idKeyedRecords] = await Promise.all([
+    fetchAllRecords(config),
+    fetchAllRecords({ ...config, returnFieldsByFieldId: true }),
+  ]);
+  const idKeyedFields = new Map(idKeyedRecords.map((record) => [record.id, record.fields ?? {}]));
+  const records = namedRecords.map((record) => ({
+    ...record,
+    fields: { ...(record.fields ?? {}), ...(idKeyedFields.get(record.id) ?? {}) },
+  }));
   const publications = normalisePublications(records);
 
   if (publications.length < config.minimum) {

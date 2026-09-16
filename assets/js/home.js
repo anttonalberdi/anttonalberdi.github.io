@@ -114,7 +114,7 @@ function renderPublications(publications) {
           <span class="publication-card__year">${escapeHtml(publication.year)}</span>
           <span>
             <h3>${escapeHtml(publication.title)}</h3>
-            <p>${escapeHtml(publication.authors)} · <span class="publication-card__journal">${escapeHtml(publication.journal)}</span></p>
+            <p>${escapeHtml(publication.authors)} · <span class="publication-card__journal">${escapeHtml(publication.journal)}${publication.volume ? ` ${escapeHtml(publication.volume)}` : ""}</span></p>
           </span>
           <span class="publication-card__arrow" aria-hidden="true">↗</span>
         </a>`;

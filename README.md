@@ -58,6 +58,7 @@ recognises these columns (names are case-insensitive):
 | `Authors` | Required | Formatted author list |
 | `Year` | Required for published work | Four-digit publication year |
 | `Journal` | Optional | Journal or venue |
+| `Volume` | Optional | Volume and issue/number, displayed after the journal |
 | `DOI` | Optional | Bare DOI or doi.org URL |
 | `URL` | Optional | Article URL; derived from DOI when absent |
 | `Status` | Optional | `Under review` creates the matching archive group |
