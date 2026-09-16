@@ -91,6 +91,30 @@ export function selectMemberRecords(records, environment = process.env) {
   });
 }
 
+export function findImageAttachmentFields(records) {
+  if (!Array.isArray(records)) throw new TypeError("Airtable did not return a records array.");
+
+  const counts = new Map();
+  for (const record of records) {
+    for (const [field, value] of Object.entries(record?.fields ?? {})) {
+      const hasImage =
+        Array.isArray(value) &&
+        value.some(
+          (item) =>
+            item &&
+            typeof item === "object" &&
+            typeof item.url === "string" &&
+            String(item.type ?? "").toLowerCase().startsWith("image/"),
+        );
+      if (hasImage) counts.set(field, (counts.get(field) ?? 0) + 1);
+    }
+  }
+
+  return [...counts.entries()]
+    .map(([field, count]) => ({ field, count }))
+    .sort((a, b) => b.count - a.count || a.field.localeCompare(b.field));
+}
+
 export function normaliseMemberRecords(records, environment = process.env) {
   if (!Array.isArray(records)) throw new TypeError("Airtable did not return a records array.");
 
@@ -255,6 +279,17 @@ async function main() {
   const imageUrlPrefix = imagePrefixArgument?.slice("--image-url-prefix=".length) || DEFAULT_IMAGE_URL_PREFIX;
   const records = await fetchAllRecords(config);
   const memberRecords = selectMemberRecords(records);
+
+  const configuredPictures = memberRecords.filter((record) =>
+    choosePicture(fieldValue(record?.fields ?? {}, "picture")),
+  ).length;
+  if (!configuredPictures) {
+    const candidates = findImageAttachmentFields(records);
+    const summary = candidates.length
+      ? candidates.map(({ field, count }) => `${field} (${count} records)`).join(", ")
+      : "none";
+    throw new Error(`The configured Picture field contains no images. Image attachment field candidates: ${summary}.`);
+  }
 
   if (memberRecords.length < config.minimum) {
     throw new Error(

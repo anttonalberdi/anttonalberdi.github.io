@@ -4,7 +4,13 @@ import { tmpdir } from "node:os";
 import { join } from "node:path";
 import test from "node:test";
 
-import { buildMembers, normaliseMemberRecords, readMemberConfig, selectMemberRecords } from "./sync-members.mjs";
+import {
+  buildMembers,
+  findImageAttachmentFields,
+  normaliseMemberRecords,
+  readMemberConfig,
+  selectMemberRecords,
+} from "./sync-members.mjs";
 
 const SAMPLE_RECORD = {
   id: "recPerson",
@@ -64,6 +70,16 @@ test("selects website profiles from a shared Airtable table", () => {
     selectMemberRecords(records).map(({ id }) => id),
     ["recPerson", "recPartial"],
   );
+});
+
+test("identifies image attachment fields without inspecting their contents", () => {
+  const records = [
+    SAMPLE_RECORD,
+    { ...SAMPLE_RECORD, id: "recSecond" },
+    { id: "recLinked", fields: { Collaborators: ["recOther"] } },
+  ];
+
+  assert.deepEqual(findImageAttachmentFields(records), [{ field: "Picture", count: 2 }]);
 });
 
 test("rejects an incomplete member", () => {
