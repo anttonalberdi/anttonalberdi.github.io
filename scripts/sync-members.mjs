@@ -94,7 +94,9 @@ export function selectMemberRecords(records, environment = process.env) {
 export function normaliseMemberRecords(records, environment = process.env) {
   if (!Array.isArray(records)) throw new TypeError("Airtable did not return a records array.");
 
-  return records.map((record, index) => {
+  const members = [];
+  const issues = [];
+  records.forEach((record, index) => {
     const fields = record?.fields ?? {};
     const name = toText(fieldValue(fields, "name", environment));
     const biosketch = toText(fieldValue(fields, "biosketch", environment));
@@ -109,24 +111,30 @@ export function normaliseMemberRecords(records, environment = process.env) {
     if (problems.length) {
       const availableFields = Object.keys(fields).sort((a, b) => a.localeCompare(b));
       const fieldSummary = availableFields.length ? availableFields.join(", ") : "none";
-      throw new Error(
-        `Member row ${index + 1} (${record?.id ?? "unknown"}): ${problems.join(", ")}. ` +
+      issues.push(
+        `${name || `row ${index + 1}`} (${record?.id ?? "unknown"}): ${problems.join(", ")}. ` +
           `Available fields: ${fieldSummary}.`,
       );
+      return;
     }
 
     let pictureUrl;
     try {
       pictureUrl = new URL(picture.url);
     } catch {
-      throw new Error(`Member row ${index + 1} (${record.id}): Picture is not a valid URL.`);
+      issues.push(`${name} (${record.id}): Picture is not a valid URL.`);
+      return;
     }
     if (!/^https?:$/.test(pictureUrl.protocol)) {
-      throw new Error(`Member row ${index + 1} (${record.id}): Picture must use HTTP or HTTPS.`);
+      issues.push(`${name} (${record.id}): Picture must use HTTP or HTTPS.`);
+      return;
     }
 
-    return { id: record.id, name, biosketch, position, picture };
+    members.push({ id: record.id, name, biosketch, position, picture });
   });
+
+  if (issues.length) throw new Error(`Incomplete Airtable member profiles:\n- ${issues.join("\n- ")}`);
+  return members;
 }
 
 async function downloadPicture(member, { imageDirectory, imageUrlPrefix, fetchImpl }) {

@@ -69,7 +69,19 @@ test("selects website profiles from a shared Airtable table", () => {
 test("rejects an incomplete member", () => {
   assert.throws(
     () => normaliseMemberRecords([{ id: "recBad", fields: { Name: "Incomplete" } }]),
-    /missing Position, missing Picture\. Available fields: Name\./,
+    /Incomplete \(recBad\): missing Position, missing Picture\. Available fields: Name\./,
+  );
+});
+
+test("reports every incomplete member in one validation pass", () => {
+  assert.throws(
+    () =>
+      normaliseMemberRecords([
+        { id: "recOne", fields: { Name: "First", Position: "Postdoc" } },
+        { id: "recTwo", fields: { Name: "Second", Picture: "https://example.test/second.jpg" } },
+      ]),
+    (error) => error.message.includes("First (recOne): missing Picture") &&
+      error.message.includes("Second (recTwo): missing Position"),
   );
 });
 
