@@ -88,8 +88,11 @@ variable, such as `AIRTABLE_FIELD_TITLE`, `AIRTABLE_FIELD_AUTHORS`, or
 
 ### People setup
 
-The member exporter reads every record from the table named by
-`AIRTABLE_MEMBERS_TABLE` and expects these fields:
+The member exporter reads the table named by `AIRTABLE_MEMBERS_TABLE`. Rows with
+none of the three profile fields (`Biosketch`, `Position`, or `Picture`) are
+treated as unrelated records and ignored, which allows the roster to live in a
+shared table. Once any profile field is present, the exporter requires all four
+of these fields:
 
 | Column | Requirement | Purpose |
 | --- | --- | --- |

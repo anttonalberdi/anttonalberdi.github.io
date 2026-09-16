@@ -78,6 +78,19 @@ function imageExtension(contentType, picture) {
   throw new Error(`unsupported picture type ${contentType || picture.type || "unknown"}`);
 }
 
+export function selectMemberRecords(records, environment = process.env) {
+  if (!Array.isArray(records)) throw new TypeError("Airtable did not return a records array.");
+
+  return records.filter((record) => {
+    const fields = record?.fields ?? {};
+    return (
+      toText(fieldValue(fields, "biosketch", environment)) ||
+      toText(fieldValue(fields, "position", environment)) ||
+      choosePicture(fieldValue(fields, "picture", environment))?.url
+    );
+  });
+}
+
 export function normaliseMemberRecords(records, environment = process.env) {
   if (!Array.isArray(records)) throw new TypeError("Airtable did not return a records array.");
 
@@ -234,14 +247,18 @@ async function main() {
   const imageDirectory = resolve(imageDirectoryArgument?.slice("--image-dir=".length) || DEFAULT_IMAGE_DIRECTORY);
   const imageUrlPrefix = imagePrefixArgument?.slice("--image-url-prefix=".length) || DEFAULT_IMAGE_URL_PREFIX;
   const records = await fetchAllRecords(config);
+  const memberRecords = selectMemberRecords(records);
 
-  if (records.length < config.minimum) {
+  if (memberRecords.length < config.minimum) {
     throw new Error(
-      `Refusing to replace the snapshot: Airtable returned ${records.length} members, below AIRTABLE_MIN_MEMBERS=${config.minimum}.`,
+      `Refusing to replace the snapshot: Airtable returned ${memberRecords.length} member profiles, ` +
+        `below AIRTABLE_MIN_MEMBERS=${config.minimum}.`,
     );
   }
 
-  const members = await buildMembers(records, { imageDirectory, imageUrlPrefix });
+  const ignored = records.length - memberRecords.length;
+  if (ignored) console.log(`Ignored ${ignored} Airtable rows without website member profile fields.`);
+  const members = await buildMembers(memberRecords, { imageDirectory, imageUrlPrefix });
   await writeSnapshot(outputPath, members);
 }
 

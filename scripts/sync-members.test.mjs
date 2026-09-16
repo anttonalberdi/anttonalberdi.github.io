@@ -4,7 +4,7 @@ import { tmpdir } from "node:os";
 import { join } from "node:path";
 import test from "node:test";
 
-import { buildMembers, normaliseMemberRecords, readMemberConfig } from "./sync-members.mjs";
+import { buildMembers, normaliseMemberRecords, readMemberConfig, selectMemberRecords } from "./sync-members.mjs";
 
 const SAMPLE_RECORD = {
   id: "recPerson",
@@ -51,6 +51,19 @@ test("normalises member fields returned by Airtable ID", () => {
   const [member] = normaliseMemberRecords([{ ...SAMPLE_RECORD, fields }], environment);
   assert.equal(member.name, "Ada Example");
   assert.equal(member.position, "Postdoc");
+});
+
+test("selects website profiles from a shared Airtable table", () => {
+  const records = [
+    { id: "recUnrelated", fields: { Name: "Unrelated row", Status: "Active" } },
+    SAMPLE_RECORD,
+    { id: "recPartial", fields: { Name: "Partial profile", Position: "PhD fellow" } },
+  ];
+
+  assert.deepEqual(
+    selectMemberRecords(records).map(({ id }) => id),
+    ["recPerson", "recPartial"],
+  );
 });
 
 test("rejects an incomplete member", () => {
