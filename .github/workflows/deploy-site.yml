@@ -68,6 +68,7 @@ jobs:
           AIRTABLE_FIELD_MEMBER_BIOSKETCH: ${{ vars.AIRTABLE_FIELD_MEMBER_BIOSKETCH }}
           AIRTABLE_FIELD_MEMBER_POSITION: ${{ vars.AIRTABLE_FIELD_MEMBER_POSITION }}
           AIRTABLE_FIELD_MEMBER_PICTURE: ${{ vars.AIRTABLE_FIELD_MEMBER_PICTURE }}
+          AIRTABLE_FIELD_MEMBER_STATUS: ${{ vars.AIRTABLE_FIELD_MEMBER_STATUS }}
         run: node scripts/sync-members.mjs
 
       - name: Save updated Airtable snapshots

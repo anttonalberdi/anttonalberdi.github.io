@@ -17,6 +17,7 @@ const FIELD_ALIASES = {
   biosketch: ["Biosketch"],
   position: ["Position"],
   picture: ["Picture"],
+  status: ["Status"],
 };
 
 const MIME_EXTENSIONS = new Map([
@@ -83,36 +84,16 @@ export function selectMemberRecords(records, environment = process.env) {
 
   return records.filter((record) => {
     const fields = record?.fields ?? {};
-    return (
-      toText(fieldValue(fields, "biosketch", environment)) ||
-      toText(fieldValue(fields, "position", environment)) ||
-      choosePicture(fieldValue(fields, "picture", environment))?.url
-    );
+    return memberSection(fields, environment);
   });
 }
 
-export function findImageAttachmentFields(records) {
-  if (!Array.isArray(records)) throw new TypeError("Airtable did not return a records array.");
-
-  const counts = new Map();
-  for (const record of records) {
-    for (const [field, value] of Object.entries(record?.fields ?? {})) {
-      const hasImage =
-        Array.isArray(value) &&
-        value.some(
-          (item) =>
-            item &&
-            typeof item === "object" &&
-            typeof item.url === "string" &&
-            String(item.type ?? "").toLowerCase().startsWith("image/"),
-        );
-      if (hasImage) counts.set(field, (counts.get(field) ?? 0) + 1);
-    }
-  }
-
-  return [...counts.entries()]
-    .map(([field, count]) => ({ field, count }))
-    .sort((a, b) => b.count - a.count || a.field.localeCompare(b.field));
+function memberSection(fields, environment = process.env) {
+  const status = toText(fieldValue(fields, "status", environment)).toLowerCase();
+  const position = toText(fieldValue(fields, "position", environment)).toLowerCase();
+  if (status === "active") return "active";
+  if (status === "former member") return position === "visitor" ? "visitor" : "former";
+  return "";
 }
 
 export function normaliseMemberRecords(records, environment = process.env) {
@@ -126,12 +107,14 @@ export function normaliseMemberRecords(records, environment = process.env) {
     const biosketch = toText(fieldValue(fields, "biosketch", environment));
     const position = toText(fieldValue(fields, "position", environment));
     const picture = choosePicture(fieldValue(fields, "picture", environment));
+    const section = memberSection(fields, environment);
     const problems = [];
 
     if (!record?.id) problems.push("missing Airtable record ID");
     if (!name) problems.push("missing Name");
     if (!position) problems.push("missing Position");
-    if (!picture?.url) problems.push("missing Picture");
+    if (!section) problems.push("Status must be Active or Former member");
+    if (section === "active" && !picture?.url) problems.push("missing Picture");
     if (problems.length) {
       const availableFields = Object.keys(fields).sort((a, b) => a.localeCompare(b));
       const fieldSummary = availableFields.length ? availableFields.join(", ") : "none";
@@ -142,19 +125,21 @@ export function normaliseMemberRecords(records, environment = process.env) {
       return;
     }
 
-    let pictureUrl;
-    try {
-      pictureUrl = new URL(picture.url);
-    } catch {
-      issues.push(`${name} (${record.id}): Picture is not a valid URL.`);
-      return;
-    }
-    if (!/^https?:$/.test(pictureUrl.protocol)) {
-      issues.push(`${name} (${record.id}): Picture must use HTTP or HTTPS.`);
-      return;
+    if (section === "active") {
+      let pictureUrl;
+      try {
+        pictureUrl = new URL(picture.url);
+      } catch {
+        issues.push(`${name} (${record.id}): Picture is not a valid URL.`);
+        return;
+      }
+      if (!/^https?:$/.test(pictureUrl.protocol)) {
+        issues.push(`${name} (${record.id}): Picture must use HTTP or HTTPS.`);
+        return;
+      }
     }
 
-    members.push({ id: record.id, name, biosketch, position, picture });
+    members.push({ id: record.id, name, biosketch, position, section, picture });
   });
 
   if (issues.length) throw new Error(`Incomplete Airtable member profiles:\n- ${issues.join("\n- ")}`);
@@ -188,6 +173,7 @@ async function downloadPicture(member, { imageDirectory, imageUrlPrefix, fetchIm
     name: member.name,
     biosketch: member.biosketch,
     position: member.position,
+    section: member.section,
     picture: `${imageUrlPrefix.replace(/\/$/, "")}/${filename}`,
     pictureWidth: member.picture.width,
     pictureHeight: member.picture.height,
@@ -222,10 +208,22 @@ export async function buildMembers(
   const normalised = normaliseMemberRecords(records, environment);
   const members = [];
   for (const member of normalised) {
-    members.push(await downloadPicture(member, { imageDirectory, imageUrlPrefix, fetchImpl }));
+    if (member.section === "active") {
+      members.push(await downloadPicture(member, { imageDirectory, imageUrlPrefix, fetchImpl }));
+    } else {
+      members.push({
+        id: member.id,
+        name: member.name,
+        biosketch: member.biosketch,
+        position: member.position,
+        section: member.section,
+      });
+    }
   }
 
-  const currentFilenames = new Set(members.map((member) => member.picture.split("/").pop()));
+  const currentFilenames = new Set(
+    members.filter((member) => member.picture).map((member) => member.picture.split("/").pop()),
+  );
   await removeStalePictures(imageDirectory, currentFilenames);
   return members;
 }
@@ -279,27 +277,18 @@ async function main() {
   const imageUrlPrefix = imagePrefixArgument?.slice("--image-url-prefix=".length) || DEFAULT_IMAGE_URL_PREFIX;
   const records = await fetchAllRecords(config);
   const memberRecords = selectMemberRecords(records);
-
-  const configuredPictures = memberRecords.filter((record) =>
-    choosePicture(fieldValue(record?.fields ?? {}, "picture")),
+  const activeCount = memberRecords.filter(
+    (record) => memberSection(record?.fields ?? {}) === "active",
   ).length;
-  if (!configuredPictures) {
-    const candidates = findImageAttachmentFields(records);
-    const summary = candidates.length
-      ? candidates.map(({ field, count }) => `${field} (${count} records)`).join(", ")
-      : "none";
-    throw new Error(`The configured Picture field contains no images. Image attachment field candidates: ${summary}.`);
-  }
-
-  if (memberRecords.length < config.minimum) {
+  if (activeCount < config.minimum) {
     throw new Error(
-      `Refusing to replace the snapshot: Airtable returned ${memberRecords.length} member profiles, ` +
+      `Refusing to replace the snapshot: Airtable returned ${activeCount} active member profiles, ` +
         `below AIRTABLE_MIN_MEMBERS=${config.minimum}.`,
     );
   }
 
   const ignored = records.length - memberRecords.length;
-  if (ignored) console.log(`Ignored ${ignored} Airtable rows without website member profile fields.`);
+  if (ignored) console.log(`Ignored ${ignored} Airtable rows outside the website roster statuses.`);
   const members = await buildMembers(memberRecords, { imageDirectory, imageUrlPrefix });
   await writeSnapshot(outputPath, members);
 }

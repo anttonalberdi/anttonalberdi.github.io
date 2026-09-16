@@ -1,6 +1,8 @@
 import { escapeHtml, loadCollectionDocument, safeHref } from "./content.js";
 
 const grid = document.querySelector("[data-members]");
+const formerGrid = document.querySelector("[data-former-members]");
+const visitorList = document.querySelector("[data-visitors]");
 const count = document.querySelector("[data-member-count]");
 
 const profileLinks = new Map([["Antton Alberdi", "antton_alberdi.html"]]);
@@ -26,13 +28,29 @@ function memberMarkup(member) {
   </article>`;
 }
 
+function formerMarkup(member) {
+  const detail = member.biosketch || member.position;
+  return `<article class="alumni-item"><h3>${escapeHtml(member.name)}</h3><p>${escapeHtml(detail)}</p></article>`;
+}
+
+function visitorMarkup(member) {
+  const detail = member.biosketch || member.position;
+  return `<li><strong>${escapeHtml(member.name)}</strong><span>${escapeHtml(detail)}</span></li>`;
+}
+
 async function loadMembers() {
   try {
     const collection = await loadCollectionDocument("members");
     if (collection.source !== "airtable" || !collection.complete) return;
     if (!collection.records.length) throw new Error("The Airtable member list is empty.");
-    grid.innerHTML = collection.records.map(memberMarkup).join("");
-    count.textContent = String(collection.records.length);
+    const active = collection.records.filter(({ section }) => section === "active");
+    const former = collection.records.filter(({ section }) => section === "former");
+    const visitors = collection.records.filter(({ section }) => section === "visitor");
+    if (!active.length) throw new Error("The Airtable active-member list is empty.");
+    grid.innerHTML = active.map(memberMarkup).join("");
+    formerGrid.innerHTML = former.map(formerMarkup).join("");
+    visitorList.innerHTML = visitors.map(visitorMarkup).join("");
+    count.textContent = String(active.length);
   } catch (error) {
     console.warn("The Airtable member list is unavailable; showing the preserved team list.", error);
   }

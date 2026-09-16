@@ -6,7 +6,6 @@ import test from "node:test";
 
 import {
   buildMembers,
-  findImageAttachmentFields,
   normaliseMemberRecords,
   readMemberConfig,
   selectMemberRecords,
@@ -18,6 +17,7 @@ const SAMPLE_RECORD = {
     Name: "Ada Example",
     Biosketch: "I study example ecosystems.",
     Position: { name: "Postdoc" },
+    Status: { name: "Active" },
     Picture: [
       {
         filename: "portrait.jpeg",
@@ -47,6 +47,7 @@ test("normalises member fields returned by Airtable ID", () => {
     AIRTABLE_FIELD_MEMBER_BIOSKETCH: "fldBio",
     AIRTABLE_FIELD_MEMBER_POSITION: "fldPosition",
     AIRTABLE_FIELD_MEMBER_PICTURE: "fldPicture",
+    AIRTABLE_FIELD_MEMBER_STATUS: "fldStatus",
   };
   const fields = Object.fromEntries(
     Object.entries(SAMPLE_RECORD.fields).map(([name, value]) => [
@@ -59,33 +60,24 @@ test("normalises member fields returned by Airtable ID", () => {
   assert.equal(member.position, "Postdoc");
 });
 
-test("selects website profiles from a shared Airtable table", () => {
+test("selects the three website roster sections by status and position", () => {
   const records = [
-    { id: "recUnrelated", fields: { Name: "Unrelated row", Status: "Active" } },
+    { id: "recUnrelated", fields: { Name: "Unrelated row", Status: "Applicant", Position: "Postdoc" } },
     SAMPLE_RECORD,
-    { id: "recPartial", fields: { Name: "Partial profile", Position: "PhD fellow" } },
+    { id: "recFormer", fields: { Name: "Former", Position: "Postdoc", Status: "Former member" } },
+    { id: "recVisitor", fields: { Name: "Visitor", Position: "Visitor", Status: "Former member" } },
   ];
 
   assert.deepEqual(
     selectMemberRecords(records).map(({ id }) => id),
-    ["recPerson", "recPartial"],
+    ["recPerson", "recFormer", "recVisitor"],
   );
-});
-
-test("identifies image attachment fields without inspecting their contents", () => {
-  const records = [
-    SAMPLE_RECORD,
-    { ...SAMPLE_RECORD, id: "recSecond" },
-    { id: "recLinked", fields: { Collaborators: ["recOther"] } },
-  ];
-
-  assert.deepEqual(findImageAttachmentFields(records), [{ field: "Picture", count: 2 }]);
 });
 
 test("rejects an incomplete member", () => {
   assert.throws(
-    () => normaliseMemberRecords([{ id: "recBad", fields: { Name: "Incomplete" } }]),
-    /Incomplete \(recBad\): missing Position, missing Picture\. Available fields: Name\./,
+    () => normaliseMemberRecords([{ id: "recBad", fields: { Name: "Incomplete", Status: "Active" } }]),
+    /Incomplete \(recBad\): missing Position, missing Picture\. Available fields: Name/,
   );
 });
 
@@ -93,8 +85,11 @@ test("reports every incomplete member in one validation pass", () => {
   assert.throws(
     () =>
       normaliseMemberRecords([
-        { id: "recOne", fields: { Name: "First", Position: "Postdoc" } },
-        { id: "recTwo", fields: { Name: "Second", Picture: "https://example.test/second.jpg" } },
+        { id: "recOne", fields: { Name: "First", Position: "Postdoc", Status: "Active" } },
+        {
+          id: "recTwo",
+          fields: { Name: "Second", Picture: "https://example.test/second.jpg", Status: "Active" },
+        },
       ]),
     (error) => error.message.includes("First (recOne): missing Picture") &&
       error.message.includes("Second (recTwo): missing Position"),
@@ -106,6 +101,14 @@ test("allows a member profile without a biosketch", () => {
   delete fields.Biosketch;
   const [member] = normaliseMemberRecords([{ ...SAMPLE_RECORD, fields }]);
   assert.equal(member.biosketch, "");
+});
+
+test("normalises former members and visitors without pictures", () => {
+  const members = normaliseMemberRecords([
+    { id: "recFormer", fields: { Name: "Former", Position: "Postdoc", Status: "Former member" } },
+    { id: "recVisitor", fields: { Name: "Visitor", Position: "Visitor", Status: "Former member" } },
+  ]);
+  assert.deepEqual(members.map(({ section }) => section), ["former", "visitor"]);
 });
 
 test("downloads portraits and removes only stale generated portraits", async () => {

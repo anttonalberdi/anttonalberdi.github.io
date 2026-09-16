@@ -88,18 +88,19 @@ variable, such as `AIRTABLE_FIELD_TITLE`, `AIRTABLE_FIELD_AUTHORS`, or
 
 ### People setup
 
-The member exporter reads the table named by `AIRTABLE_MEMBERS_TABLE`. Rows with
-none of the three profile fields (`Biosketch`, `Position`, or `Picture`) are
-treated as unrelated records and ignored, which allows the roster to live in a
-shared table. Once any profile field is present, the exporter requires the
-name, position, and picture fields:
+The member exporter reads the table named by `AIRTABLE_MEMBERS_TABLE` and uses
+`Status` plus `Position` to populate all three People-page sections. `Active`
+records are current members. `Former member` records are alumni unless their
+position is `Visitor`, in which case they appear under Visitors. Other statuses
+are ignored.
 
 | Column | Requirement | Purpose |
 | --- | --- | --- |
 | `Name` | Required | Display name |
 | `Biosketch` | Optional | Short biography shown on the card |
-| `Position` | Required | Role or job title |
-| `Picture` | Required | Airtable image attachment |
+| `Position` | Required | Role or job title; `Visitor` selects the visitor section |
+| `Picture` | Required for active members | Airtable image attachment |
+| `Status` | Required | `Active` or `Former member` determines page placement |
 
 The workflow downloads each `Picture` attachment into
 `assets/images/people/` and stores the local path in `members.json`. This avoids
@@ -114,8 +115,9 @@ Repository variables for People:
   in the table is exported.
 - `AIRTABLE_MIN_MEMBERS`: optional safety threshold, defaulting to `5`.
 - `AIRTABLE_FIELD_MEMBER_NAME`, `AIRTABLE_FIELD_MEMBER_BIOSKETCH`,
-  `AIRTABLE_FIELD_MEMBER_POSITION`, and `AIRTABLE_FIELD_MEMBER_PICTURE`: optional
-  field-name overrides; the four names above are used by default.
+  `AIRTABLE_FIELD_MEMBER_POSITION`, `AIRTABLE_FIELD_MEMBER_PICTURE`, and
+  `AIRTABLE_FIELD_MEMBER_STATUS`: optional field-name or field-ID overrides; the
+  five names above are used by default.
 
 The workflow runs daily at 04:17 UTC and can be started immediately from the
 repository's **Actions → Deploy site → Run workflow** menu. Normal pushes deploy
