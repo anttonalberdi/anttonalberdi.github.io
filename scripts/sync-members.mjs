@@ -95,7 +95,12 @@ export function normaliseMemberRecords(records, environment = process.env) {
     if (!position) problems.push("missing Position");
     if (!picture?.url) problems.push("missing Picture");
     if (problems.length) {
-      throw new Error(`Member row ${index + 1} (${record?.id ?? "unknown"}): ${problems.join(", ")}.`);
+      const availableFields = Object.keys(fields).sort((a, b) => a.localeCompare(b));
+      const fieldSummary = availableFields.length ? availableFields.join(", ") : "none";
+      throw new Error(
+        `Member row ${index + 1} (${record?.id ?? "unknown"}): ${problems.join(", ")}. ` +
+          `Available fields: ${fieldSummary}.`,
+      );
     }
 
     let pictureUrl;

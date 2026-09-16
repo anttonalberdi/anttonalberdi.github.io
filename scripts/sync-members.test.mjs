@@ -38,7 +38,7 @@ test("normalises the four member fields and chooses the full thumbnail", () => {
 test("rejects an incomplete member", () => {
   assert.throws(
     () => normaliseMemberRecords([{ id: "recBad", fields: { Name: "Incomplete" } }]),
-    /missing Biosketch, missing Position, missing Picture/,
+    /missing Biosketch, missing Position, missing Picture\. Available fields: Name\./,
   );
 });
 
