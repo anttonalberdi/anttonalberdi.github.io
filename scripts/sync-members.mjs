@@ -114,7 +114,6 @@ export function normaliseMemberRecords(records, environment = process.env) {
     if (!name) problems.push("missing Name");
     if (!position) problems.push("missing Position");
     if (!section) problems.push("Status must be Active or Former member");
-    if (section === "active" && !picture?.url) problems.push("missing Picture");
     if (problems.length) {
       const availableFields = Object.keys(fields).sort((a, b) => a.localeCompare(b));
       const fieldSummary = availableFields.length ? availableFields.join(", ") : "none";
@@ -125,7 +124,7 @@ export function normaliseMemberRecords(records, environment = process.env) {
       return;
     }
 
-    if (section === "active") {
+    if (section === "active" && picture?.url) {
       let pictureUrl;
       try {
         pictureUrl = new URL(picture.url);
@@ -208,7 +207,7 @@ export async function buildMembers(
   const normalised = normaliseMemberRecords(records, environment);
   const members = [];
   for (const member of normalised) {
-    if (member.section === "active") {
+    if (member.section === "active" && member.picture?.url) {
       members.push(await downloadPicture(member, { imageDirectory, imageUrlPrefix, fetchImpl }));
     } else {
       members.push({

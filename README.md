@@ -99,7 +99,7 @@ are ignored.
 | `Name` | Required | Display name |
 | `Biosketch` | Optional | Short biography shown on the card |
 | `Position` | Required | Role or job title; `Visitor` selects the visitor section |
-| `Picture` | Required for active members | Airtable image attachment |
+| `Picture` | Optional | Airtable image attachment; active members without one use initials |
 | `Status` | Required | `Active` or `Former member` determines page placement |
 
 The workflow downloads each `Picture` attachment into

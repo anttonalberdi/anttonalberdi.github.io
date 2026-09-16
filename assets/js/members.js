@@ -8,7 +8,6 @@ const count = document.querySelector("[data-member-count]");
 const profileLinks = new Map([["Antton Alberdi", "antton_alberdi.html"]]);
 
 function memberMarkup(member) {
-  const picture = safeHref(member.picture);
   const profile = profileLinks.get(member.name);
   const name = profile
     ? `<a href="${escapeHtml(profile)}">${escapeHtml(member.name)}</a>`
@@ -17,9 +16,19 @@ function memberMarkup(member) {
     ? ` width="${escapeHtml(member.pictureWidth)}" height="${escapeHtml(member.pictureHeight)}"`
     : "";
   const biosketch = member.biosketch ? `<p>${escapeHtml(member.biosketch)}</p>` : "";
+  const initials = member.name
+    .split(/\s+/)
+    .filter(Boolean)
+    .slice(0, 2)
+    .map((part) => part[0])
+    .join("")
+    .toUpperCase();
+  const portrait = member.picture
+    ? `<img src="${escapeHtml(safeHref(member.picture))}" alt="${escapeHtml(member.name)}"${dimensions} loading="lazy">`
+    : `<div class="person-card__placeholder" aria-hidden="true">${escapeHtml(initials)}</div>`;
 
   return `<article class="person-card is-visible">
-    <div class="person-card__image"><img src="${escapeHtml(picture)}" alt="${escapeHtml(member.name)}"${dimensions} loading="lazy"></div>
+    <div class="person-card__image">${portrait}</div>
     <div class="person-card__body">
       <span class="person-card__role">${escapeHtml(member.position)}</span>
       <h3>${name}</h3>

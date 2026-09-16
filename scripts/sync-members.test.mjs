@@ -77,7 +77,7 @@ test("selects the three website roster sections by status and position", () => {
 test("rejects an incomplete member", () => {
   assert.throws(
     () => normaliseMemberRecords([{ id: "recBad", fields: { Name: "Incomplete", Status: "Active" } }]),
-    /Incomplete \(recBad\): missing Position, missing Picture\. Available fields: Name/,
+    /Incomplete \(recBad\): missing Position\. Available fields: Name/,
   );
 });
 
@@ -85,13 +85,13 @@ test("reports every incomplete member in one validation pass", () => {
   assert.throws(
     () =>
       normaliseMemberRecords([
-        { id: "recOne", fields: { Name: "First", Position: "Postdoc", Status: "Active" } },
+        { id: "recOne", fields: { Position: "Postdoc", Status: "Active" } },
         {
           id: "recTwo",
           fields: { Name: "Second", Picture: "https://example.test/second.jpg", Status: "Active" },
         },
       ]),
-    (error) => error.message.includes("First (recOne): missing Picture") &&
+    (error) => error.message.includes("row 1 (recOne): missing Name") &&
       error.message.includes("Second (recTwo): missing Position"),
   );
 });
@@ -101,6 +101,14 @@ test("allows a member profile without a biosketch", () => {
   delete fields.Biosketch;
   const [member] = normaliseMemberRecords([{ ...SAMPLE_RECORD, fields }]);
   assert.equal(member.biosketch, "");
+});
+
+test("allows an active member without a picture", () => {
+  const fields = { ...SAMPLE_RECORD.fields };
+  delete fields.Picture;
+  const [member] = normaliseMemberRecords([{ ...SAMPLE_RECORD, fields }]);
+  assert.equal(member.section, "active");
+  assert.equal(member.picture, null);
 });
 
 test("normalises former members and visitors without pictures", () => {
