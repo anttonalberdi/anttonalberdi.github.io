@@ -8,6 +8,8 @@
       "biosketch": "I develop and implement methods for micro-scale metagenomics.",
       "position": "Postdoc",
       "section": "active",
+      "startYear": 2024,
+      "endYear": null,
       "picture": "assets/images/people/airtable-rec3IV8ylOqfnzTFr-c76eb61b673f.jpg",
       "pictureWidth": 3000,
       "pictureHeight": 2250
@@ -18,6 +20,8 @@
       "biosketch": "I explore how the gut microbiota mediates evolutionary dietary shifts in Mediterranean wall lizards.",
       "position": "PhD Student",
       "section": "active",
+      "startYear": 2025,
+      "endYear": 2027,
       "picture": "assets/images/people/airtable-rec6ER801Xslbz8bV-f8c038b338ce.png",
       "pictureWidth": 555,
       "pictureHeight": 312
@@ -27,63 +31,81 @@
       "name": "Lukas Fix",
       "biosketch": "",
       "position": "MSc Student",
-      "section": "former"
+      "section": "former",
+      "startYear": 2025,
+      "endYear": 2026
     },
     {
       "id": "rec6kMTxSO5Z3UJnr",
       "name": "Eray Sahin",
       "biosketch": "",
       "position": "Visitor",
-      "section": "visitor"
+      "section": "visitor",
+      "startYear": 2022,
+      "endYear": 2023
     },
     {
       "id": "recCEmLExMUAKSArR",
       "name": "Joana Fernandes",
       "biosketch": "",
       "position": "PhD Student",
-      "section": "former"
+      "section": "former",
+      "startYear": 2025,
+      "endYear": 2025
     },
     {
       "id": "recDAaTcmRp1Y9ckc",
       "name": "Marta Contreras Serrano",
       "biosketch": "",
       "position": "PhD Student",
-      "section": "former"
+      "section": "former",
+      "startYear": 2022,
+      "endYear": 2023
     },
     {
       "id": "recI1fNfzZb36jFYE",
       "name": "Johan Staffeldt",
       "biosketch": "",
       "position": "MSc Student",
-      "section": "former"
+      "section": "former",
+      "startYear": 2024,
+      "endYear": 2024
     },
     {
       "id": "recIIig3HhHUdoGlF",
       "name": "Alba Hernangomez",
       "biosketch": "",
       "position": "Visitor",
-      "section": "visitor"
+      "section": "visitor",
+      "startYear": 2025,
+      "endYear": 2025
     },
     {
       "id": "recJiQH5nZzTB8shF",
       "name": "Martina Cardinali",
       "biosketch": "",
       "position": "Research assistant",
-      "section": "former"
+      "section": "former",
+      "startYear": 2020,
+      "endYear": 2021
     },
     {
       "id": "recJwDYSWmySOuaky",
       "name": "Adam Leslie Koziol",
       "biosketch": "",
       "position": "MSc Student, PhD Student",
-      "section": "former"
+      "section": "former",
+      "startYear": 2019,
+      "endYear": 2022
     },
     {
       "id": "recKgWjE2bIQ89Obp",
       "name": "Raphael Eisenhofer",
       "biosketch": "",
       "position": "Postdoc",
-      "section": "former"
+      "section": "former",
+      "startYear": 2021,
+      "endYear": 2025
     },
     {
       "id": "recL2W0U258wYh3Vl",
@@ -91,6 +113,8 @@
       "biosketch": "I perform DNA extractions and library building for the Earth Hologenome Initiative and related vertebrate microbiome projects.",
       "position": "Research assistant",
       "section": "active",
+      "startYear": 2022,
+      "endYear": null,
       "picture": "assets/images/people/airtable-recL2W0U258wYh3Vl-3c795b7c53c2.jpg",
       "pictureWidth": 1963,
       "pictureHeight": 1601
@@ -101,6 +125,8 @@
       "biosketch": "I lead a young research group of enthusiastic biologists and data scientists interested in understanding how animal-microbiota interactions shape ecological and evolutionary processes.",
       "position": "Associate Professor",
       "section": "active",
+      "startYear": 2020,
+      "endYear": null,
       "picture": "assets/images/people/airtable-recLUFBKfiel7VhXH-42ab89eb0096.jpg",
       "pictureWidth": 348,
       "pictureHeight": 196
@@ -110,56 +136,72 @@
       "name": "Emma Gravesen",
       "biosketch": "",
       "position": "BSc Student",
-      "section": "former"
+      "section": "former",
+      "startYear": 2025,
+      "endYear": 2025
     },
     {
       "id": "recO4WzcVHtpfbQdT",
       "name": "Aoife Leonard",
       "biosketch": "",
       "position": "Postdoc",
-      "section": "former"
+      "section": "former",
+      "startYear": 2020,
+      "endYear": 2024
     },
     {
       "id": "recQARo6zGKkLnU2c",
       "name": "Louisa Pless",
       "biosketch": "",
       "position": "Research assistant",
-      "section": "former"
+      "section": "former",
+      "startYear": 2020,
+      "endYear": 2022
     },
     {
       "id": "recQhfRT2vJjcswjJ",
       "name": "Nia Toshkova",
       "biosketch": "",
       "position": "PhD Student",
-      "section": "former"
+      "section": "former",
+      "startYear": 2021,
+      "endYear": 2025
     },
     {
       "id": "recRHFA8n9ymFv3f0",
       "name": "Michael Miskelly",
       "biosketch": "I bring frozen intestines back to life.",
       "position": "Postdoc",
-      "section": "former"
+      "section": "former",
+      "startYear": 2023,
+      "endYear": 2025
     },
     {
       "id": "recRdijpBbBWgH1lo",
       "name": "Jenny Merkesvik",
       "biosketch": "",
       "position": "Visitor",
-      "section": "visitor"
+      "section": "visitor",
+      "startYear": 2024,
+      "endYear": 2024
     },
     {
       "id": "recSmZ5vz67G6ARn6",
       "name": "Ana Verissimo",
       "biosketch": "",
       "position": "Manager",
-      "section": "former"
+      "section": "former",
+      "startYear": 2021,
+      "endYear": 2023
     },
     {
       "id": "recU9Yrz2JfCZqCLX",
       "name": "Jorge Langa",
       "biosketch": "",
       "position": "Postdoc",
-      "section": "former"
+      "section": "former",
+      "startYear": 2023,
+      "endYear": 2025
     },
     {
       "id": "recUBMRwrcLyCYGOY",
@@ -167,6 +209,8 @@
       "biosketch": "My work explores lizard gut microbiomes and the interactions between microbial communities and their hosts.",
       "position": "Postdoc",
       "section": "active",
+      "startYear": 2019,
+      "endYear": null,
       "picture": "assets/images/people/airtable-recUBMRwrcLyCYGOY-5f0030a31374.jpg",
       "pictureWidth": 800,
       "pictureHeight": 800
@@ -176,14 +220,18 @@
       "name": "Claudia Romeo",
       "biosketch": "I am an ecologist interested in the potential role played by metagenomic plasticity in biological invasions. My research focusses on studying gut microbial diversity in a native-invasive vertebrate system, and how it relates with dietary flexibility, resistance to parasites and animal personality.",
       "position": "Postdoc",
-      "section": "former"
+      "section": "former",
+      "startYear": 2023,
+      "endYear": 2025
     },
     {
       "id": "recUln4bUEJeanWJi",
       "name": "Raquel Río",
       "biosketch": "",
       "position": "Visitor",
-      "section": "visitor"
+      "section": "visitor",
+      "startYear": 2026,
+      "endYear": 2026
     },
     {
       "id": "recWKVXKdvrfejoBM",
@@ -191,6 +239,8 @@
       "biosketch": "",
       "position": "Research assistant",
       "section": "active",
+      "startYear": 2026,
+      "endYear": null,
       "picture": "assets/images/people/airtable-recWKVXKdvrfejoBM-a63b4c4eb7ec.jpg",
       "pictureWidth": 959,
       "pictureHeight": 1264
@@ -201,6 +251,8 @@
       "biosketch": "I develop large-scale untargeted imaging approaches to resolve host–microbiota interactions in space.",
       "position": "PhD Student",
       "section": "active",
+      "startYear": 2025,
+      "endYear": null,
       "picture": "assets/images/people/airtable-recWttt9r6rM8PV4X-e39c844cf542.png",
       "pictureWidth": 609,
       "pictureHeight": 342
@@ -210,28 +262,36 @@
       "name": "Kees Blijleven",
       "biosketch": "",
       "position": "Research assistant",
-      "section": "former"
+      "section": "former",
+      "startYear": 2021,
+      "endYear": 2024
     },
     {
       "id": "recYXE2sG1iwVBRTZ",
       "name": "Isolde van Riemsdijk",
       "biosketch": "I am an evolutionary biologist who explores the boundaries of species. With the hologenomics approach I will uncover the evolutionary interactions between two toad species, their microbiomes, and the notorious chytrid fungus.",
       "position": "Postdoc",
-      "section": "former"
+      "section": "former",
+      "startYear": 2023,
+      "endYear": 2025
     },
     {
       "id": "recZILg6gAr7FO769",
       "name": "Julio David Soto López",
       "biosketch": "",
       "position": "Visitor",
-      "section": "visitor"
+      "section": "visitor",
+      "startYear": 2025,
+      "endYear": 2025
     },
     {
       "id": "recaLldxt2ll8guQ5",
       "name": "Wanxin Lai",
       "biosketch": "",
       "position": "Visitor",
-      "section": "visitor"
+      "section": "visitor",
+      "startYear": 2024,
+      "endYear": 2024
     },
     {
       "id": "recbMWpHwNgnaiY9o",
@@ -239,6 +299,8 @@
       "biosketch": "My research is focused on understanding how animal-microbiota-environment interactions affect animal behaviour and its implication for animal ecology and evolution.",
       "position": "Assistant Professor",
       "section": "active",
+      "startYear": 2020,
+      "endYear": null,
       "picture": "assets/images/people/airtable-recbMWpHwNgnaiY9o-efa1638cf084.jpg",
       "pictureWidth": 726,
       "pictureHeight": 408
@@ -248,63 +310,81 @@
       "name": "Frank Machairas",
       "biosketch": "",
       "position": "Visitor",
-      "section": "active"
+      "section": "active",
+      "startYear": 2026,
+      "endYear": null
     },
     {
       "id": "receBmwZ1V9vkLTpJ",
       "name": "Iñaki Odriozola",
       "biosketch": "I am an ecologist with special interest in statistical modelling of microbial community data, such as species distributions, their roles on various ecosystem processes or host-related functions.",
       "position": "Postdoc",
-      "section": "former"
+      "section": "former",
+      "startYear": 2021,
+      "endYear": 2025
     },
     {
       "id": "reciR8yoVidEEFhYH",
       "name": "Amalia Toffano",
       "biosketch": "",
       "position": "Research assistant",
-      "section": "former"
+      "section": "former",
+      "startYear": 2022,
+      "endYear": 2023
     },
     {
       "id": "recixZWcCWNXX5pMM",
       "name": "Sofia Marcos",
       "biosketch": "",
       "position": "PhD Student",
-      "section": "former"
+      "section": "former",
+      "startYear": 2020,
+      "endYear": 2024
     },
     {
       "id": "recmee7K2m8C5vLM9",
       "name": "Julio Soto",
       "biosketch": "",
       "position": "Visitor",
-      "section": "visitor"
+      "section": "visitor",
+      "startYear": 2025,
+      "endYear": 2025
     },
     {
       "id": "recmza9hlCDRkgDuZ",
       "name": "Irene Martinez",
       "biosketch": "",
       "position": "PhD Student",
-      "section": "active"
+      "section": "active",
+      "startYear": 2026,
+      "endYear": null
     },
     {
       "id": "recn8ogrJhIGXPBcy",
       "name": "Jonas Lauritsen",
       "biosketch": "I implement and optimise laboratory protocols for automation, drawing on a love of microbiology, learning and DIY projects.",
       "position": "Research assistant",
-      "section": "active"
+      "section": "active",
+      "startYear": 2022,
+      "endYear": null
     },
     {
       "id": "recok4ma39rD2LmCJ",
       "name": "Laura Bullova",
       "biosketch": "",
       "position": "Visitor",
-      "section": "visitor"
+      "section": "visitor",
+      "startYear": 2025,
+      "endYear": 2025
     },
     {
       "id": "recpNnTsDAEbhumYR",
       "name": "Anna Maria Voukouna",
       "biosketch": "",
       "position": "Visitor",
-      "section": "visitor"
+      "section": "visitor",
+      "startYear": 2025,
+      "endYear": 2025
     },
     {
       "id": "recpWpXdzsXkFCazp",
@@ -312,6 +392,8 @@
       "biosketch": "I characterise gut microbiome differences in newts and salamanders to investigate environmental influences on microbial diversity and function.",
       "position": "PhD Student",
       "section": "active",
+      "startYear": 2025,
+      "endYear": 2027,
       "picture": "assets/images/people/airtable-recpWpXdzsXkFCazp-e974f82b73f3.png",
       "pictureWidth": 369,
       "pictureHeight": 208
@@ -321,70 +403,90 @@
       "name": "Jasper Ubirajara Chao",
       "biosketch": "",
       "position": "Visitor",
-      "section": "visitor"
+      "section": "visitor",
+      "startYear": 2023,
+      "endYear": 2023
     },
     {
       "id": "recqAVYEEzga4dmHo",
       "name": "Luisa dos Santos Bay Nielsen",
       "biosketch": "",
       "position": "PhD Student",
-      "section": "former"
+      "section": "former",
+      "startYear": 2020,
+      "endYear": 2024
     },
     {
       "id": "recrcZ81uUUMhLr3z",
       "name": "Amanda Bolt Botnen",
       "biosketch": "",
       "position": "PhD Student",
-      "section": "former"
+      "section": "former",
+      "startYear": 2019,
+      "endYear": 2022
     },
     {
       "id": "recrhxB1wFtgRpieq",
       "name": "Lasse Nyholm Jessen",
       "biosketch": "",
       "position": "PhD Student",
-      "section": "former"
+      "section": "former",
+      "startYear": 2019,
+      "endYear": 2022
     },
     {
       "id": "recrjvlhgCgdrO22d",
       "name": "Claudia Tranquillo",
       "biosketch": "",
       "position": "Visitor",
-      "section": "visitor"
+      "section": "visitor",
+      "startYear": 2024,
+      "endYear": 2024
     },
     {
       "id": "recrwzpVTKy6RX6Ao",
       "name": "Adam Marques",
       "biosketch": "",
       "position": "PhD Student",
-      "section": "former"
+      "section": "former",
+      "startYear": 2025,
+      "endYear": 2025
     },
     {
       "id": "recvd66rbXXEdCIsq",
       "name": "Ella Lattenkamp (she/her)",
       "biosketch": "As the project and outreach manager for the 3D’omics project and the Earth Hologenome Initiative, I am facilitating communication between partners, help to keep the projects on track, and convey our results to the public.",
       "position": "Manager",
-      "section": "former"
+      "section": "former",
+      "startYear": 2023,
+      "endYear": 2025
     },
     {
       "id": "recx57rhvV8VR1jyY",
       "name": "Carlotta Pietroni",
       "biosketch": "",
       "position": "Postdoc",
-      "section": "former"
+      "section": "former",
+      "startYear": 2021,
+      "endYear": 2025
     },
     {
       "id": "recxn46jHKacDXUWl",
       "name": "David Essenbæk",
       "biosketch": "",
       "position": "MSc Student",
-      "section": "former"
+      "section": "former",
+      "startYear": 2024,
+      "endYear": 2024
     },
     {
       "id": "reczQNIUn1iEIhpZN",
       "name": "Nuria Hermosilla",
       "biosketch": "",
       "position": "MSc Student",
-      "section": "former"
+      "section": "former",
+      "startYear": 2020,
+      "endYear": 2021
     }
   ]
 }
