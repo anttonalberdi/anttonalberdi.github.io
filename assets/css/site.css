@@ -2166,7 +2166,7 @@ html.reveal-ready [data-reveal].is-visible {
   font-size: clamp(4.4rem, 8.5vw, 8.6rem);
 }
 
-.page-hero .page-hero__title--teaching {
+.page-hero .page-hero__title--compact {
   font-size: clamp(4rem, 5.5vw, 6rem);
 }
 
@@ -3857,7 +3857,7 @@ html.reveal-ready [data-reveal].is-visible {
     font-size: clamp(3.5rem, 17vw, 5.2rem);
   }
 
-  .page-hero .page-hero__title--teaching {
+  .page-hero .page-hero__title--compact {
     font-size: min(12.8vw, 5.2rem);
   }
 
