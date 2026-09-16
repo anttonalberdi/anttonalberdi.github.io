@@ -1,0 +1,35 @@
+[
+  {
+    "id": "earth-hologenome-initiative",
+    "title": "Earth Hologenome Initiative",
+    "type": "Global initiative",
+    "description": "Generating paired genomic and metagenomic data from wild organisms around the world.",
+    "url": "https://www.earthhologenome.org/",
+    "image": "assets/images/mbr-984x658.jpeg",
+    "imageAlt": "A green chameleon photographed at close range",
+    "featured": true,
+    "order": 1
+  },
+  {
+    "id": "3d-omics",
+    "title": "3D'omics",
+    "type": "Research programme",
+    "description": "Reconstructing animal–microbiota interactions across multiple molecular layers at microscale resolution.",
+    "url": "https://www.3domics.eu/",
+    "image": "assets/images/mbr-2-699x466.jpeg",
+    "imageAlt": "Microscope objectives used for high-resolution biological research",
+    "featured": true,
+    "order": 2
+  },
+  {
+    "id": "holofood",
+    "title": "HoloFood",
+    "type": "Collaborative project",
+    "description": "Using hologenomics to improve the quality and sustainability of animal food production.",
+    "url": "https://www.holofood.eu/",
+    "image": "assets/images/mbr-1-984x656.jpeg",
+    "imageAlt": "Two chickens against a dark background",
+    "featured": true,
+    "order": 3
+  }
+]

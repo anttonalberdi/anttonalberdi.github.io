@@ -1,0 +1,96 @@
+name: Deploy site
+
+on:
+  push:
+    branches:
+      - master
+  schedule:
+    # 04:17 UTC avoids the busiest point of the hour.
+    - cron: "17 4 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: github-pages
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      - name: Check out the site
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        if: github.event_name != 'push'
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Export publications from Airtable
+        if: github.event_name != 'push'
+        env:
+          AIRTABLE_ACCESS_TOKEN: ${{ secrets.AIRTABLE_ACCESS_TOKEN }}
+          AIRTABLE_BASE_ID: ${{ vars.AIRTABLE_BASE_ID }}
+          AIRTABLE_PUBLICATIONS_TABLE: ${{ vars.AIRTABLE_PUBLICATIONS_TABLE }}
+          AIRTABLE_PUBLICATIONS_VIEW: ${{ vars.AIRTABLE_PUBLICATIONS_VIEW }}
+          AIRTABLE_MIN_PUBLICATIONS: ${{ vars.AIRTABLE_MIN_PUBLICATIONS }}
+          AIRTABLE_FIELD_TITLE: ${{ vars.AIRTABLE_FIELD_TITLE }}
+          AIRTABLE_FIELD_AUTHORS: ${{ vars.AIRTABLE_FIELD_AUTHORS }}
+          AIRTABLE_FIELD_YEAR: ${{ vars.AIRTABLE_FIELD_YEAR }}
+          AIRTABLE_FIELD_JOURNAL: ${{ vars.AIRTABLE_FIELD_JOURNAL }}
+          AIRTABLE_FIELD_DOI: ${{ vars.AIRTABLE_FIELD_DOI }}
+          AIRTABLE_FIELD_URL: ${{ vars.AIRTABLE_FIELD_URL }}
+          AIRTABLE_FIELD_STATUS: ${{ vars.AIRTABLE_FIELD_STATUS }}
+          AIRTABLE_FIELD_GROUP: ${{ vars.AIRTABLE_FIELD_GROUP }}
+          AIRTABLE_FIELD_FEATURED: ${{ vars.AIRTABLE_FIELD_FEATURED }}
+          AIRTABLE_FIELD_HIDDEN: ${{ vars.AIRTABLE_FIELD_HIDDEN }}
+          AIRTABLE_FIELD_ORDER: ${{ vars.AIRTABLE_FIELD_ORDER }}
+        run: node scripts/sync-publications.mjs
+
+      - name: Export members from Airtable
+        if: github.event_name != 'push'
+        env:
+          AIRTABLE_ACCESS_TOKEN: ${{ secrets.AIRTABLE_ACCESS_TOKEN }}
+          AIRTABLE_BASE_ID: ${{ vars.AIRTABLE_BASE_ID }}
+          AIRTABLE_MEMBERS_TABLE: ${{ vars.AIRTABLE_MEMBERS_TABLE }}
+          AIRTABLE_MEMBERS_VIEW: ${{ vars.AIRTABLE_MEMBERS_VIEW }}
+          AIRTABLE_MIN_MEMBERS: ${{ vars.AIRTABLE_MIN_MEMBERS }}
+          AIRTABLE_FIELD_MEMBER_NAME: ${{ vars.AIRTABLE_FIELD_MEMBER_NAME }}
+          AIRTABLE_FIELD_MEMBER_BIOSKETCH: ${{ vars.AIRTABLE_FIELD_MEMBER_BIOSKETCH }}
+          AIRTABLE_FIELD_MEMBER_POSITION: ${{ vars.AIRTABLE_FIELD_MEMBER_POSITION }}
+          AIRTABLE_FIELD_MEMBER_PICTURE: ${{ vars.AIRTABLE_FIELD_MEMBER_PICTURE }}
+        run: node scripts/sync-members.mjs
+
+      - name: Save updated Airtable snapshots
+        if: github.event_name != 'push'
+        run: |
+          git add -A -- assets/data/publications.json assets/data/members.json assets/images/people
+          if git diff --cached --quiet; then
+            echo "No Airtable content changes to commit."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "Update content from Airtable"
+          git push
+
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload site artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: .
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

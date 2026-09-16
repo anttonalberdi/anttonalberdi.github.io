@@ -1,0 +1,68 @@
+[
+  {
+    "id": "lai-2025-rumen-methane",
+    "year": 2025,
+    "title": "Metabolic capabilities of key rumen microbiota drive methane emissions in cattle",
+    "authors": "Lai W, Alberdi A, Leu A, de Leon AVP, Kobel CM, Aho VTE, Roehe R, Pope PB, Hvidsten TR",
+    "journal": "mSystems",
+    "doi": "10.1128/msystems.00601-25",
+    "url": "https://journals.asm.org/doi/10.1128/msystems.00601-25",
+    "featured": true,
+    "order": 6
+  },
+  {
+    "id": "gaun-2025-ehi-release-1",
+    "year": 2025,
+    "title": "The Earth Hologenome Initiative: Data Release 1",
+    "authors": "Gaun N, Pietroni C, Martin-Bideguren G, Lauritsen JG, Aizpurua O, Fernandes J, et al.",
+    "journal": "GigaScience",
+    "doi": "10.1093/gigascience/giaf102",
+    "url": "https://academic.oup.com/gigascience/article/doi/10.1093/gigascience/giaf102/8248413",
+    "featured": true,
+    "order": 5
+  },
+  {
+    "id": "lauritsen-2025-dna-extraction",
+    "year": 2025,
+    "title": "Robust, open-source, and automation-friendly DNA extraction protocol for hologenomic research",
+    "authors": "Lauritsen JG, Carøe C, Gaun N, Martin-Bideguren G, Leonard A, Eisenhofer R, et al.",
+    "journal": "Molecular Ecology Resources",
+    "doi": "10.1111/1755-0998.70042",
+    "url": "https://onlinelibrary.wiley.com/doi/10.1111/1755-0998.70042",
+    "featured": true,
+    "order": 4
+  },
+  {
+    "id": "alberdi-2025-metagenomic-spaces",
+    "year": 2025,
+    "title": "Metagenomic spaces: a framework to study the effect of microbiome variation on host ecology and evolution",
+    "authors": "Alberdi A, Limborg MT, Groussin M, Aizpurua O, Gilbert MTP",
+    "journal": "Journal of Evolutionary Biology",
+    "doi": "10.1093/jeb/voaf063",
+    "url": "https://academic.oup.com/jeb/advance-article/doi/10.1093/jeb/voaf063/8140848",
+    "featured": true,
+    "order": 3
+  },
+  {
+    "id": "romeo-2025-animal-invasions",
+    "year": 2025,
+    "title": "The role of microbiomes in animal invasions: a scoping review",
+    "authors": "Romeo C, Brenner E, Wauters LA, Alberdi A",
+    "journal": "NeoBiota",
+    "doi": "10.3897/neobiota.98.145939",
+    "url": "https://neobiota.pensoft.net/article/145939/",
+    "featured": true,
+    "order": 2
+  },
+  {
+    "id": "hernandez-2025-lizard-sampling",
+    "year": 2025,
+    "title": "Contrasting recovery of metagenome-assembled genomes from lizard fecal and cloacal samples",
+    "authors": "Hernández M, Langa J, Aizpurua O, Navarro-Noya YE, Alberdi A",
+    "journal": "Animal Microbiome",
+    "doi": "10.1186/s42523-025-00381-4",
+    "url": "https://animalmicrobiome.biomedcentral.com/articles/10.1186/s42523-025-00381-4",
+    "featured": true,
+    "order": 1
+  }
+]
