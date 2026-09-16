@@ -51,12 +51,10 @@ function formerMarkup(member) {
         ? `Until ${member.endYear}`
         : "";
   const yearMarkup = years ? `<span class="alumni-item__years">${escapeHtml(years)}</span>` : "";
-  const biosketch = member.biosketch ? `<p>${escapeHtml(member.biosketch)}</p>` : "";
   return `<article class="alumni-item">
     <h3>${escapeHtml(member.name)}</h3>
     <div class="alumni-item__details">
       <div class="alumni-item__meta"><span class="alumni-item__role">${escapeHtml(member.position)}</span>${yearMarkup}</div>
-      ${biosketch}
     </div>
   </article>`;
 }
