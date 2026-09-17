@@ -93,7 +93,7 @@
       "id": "recJwDYSWmySOuaky",
       "name": "Adam Leslie Koziol",
       "biosketch": "",
-      "position": "MSc Student, PhD Student",
+      "position": "PhD Student",
       "section": "former",
       "startYear": 2019,
       "endYear": 2022
@@ -307,12 +307,15 @@
     },
     {
       "id": "reccI49FCs8emZuom",
-      "name": "Frank Machairas",
+      "name": "Fragkiskos Machairas",
       "biosketch": "",
       "position": "Visitor",
       "section": "active",
       "startYear": 2026,
-      "endYear": null
+      "endYear": null,
+      "picture": "assets/images/people/airtable-reccI49FCs8emZuom-2aa27131a88a.jpg",
+      "pictureWidth": 1179,
+      "pictureHeight": 1183
     },
     {
       "id": "receBmwZ1V9vkLTpJ",
@@ -429,7 +432,7 @@
       "id": "recrhxB1wFtgRpieq",
       "name": "Lasse Nyholm Jessen",
       "biosketch": "",
-      "position": "PhD Student",
+      "position": "MSc Student, PhD Student",
       "section": "former",
       "startYear": 2019,
       "endYear": 2022
