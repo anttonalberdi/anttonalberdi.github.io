@@ -62,7 +62,7 @@
       "authors": "Alberdi A, Aizpurua O",
       "journal": "ISME Communications",
       "volume": "ycag168",
-      "doi": "/10.1093/ismeco/ycag168",
+      "doi": "10.1093/ismeco/ycag168",
       "url": "https://academic.oup.com/ismecommun/advance-article/doi/10.1093/ismeco/ycag168/8708230",
       "featured": true,
       "order": 0
@@ -90,6 +90,19 @@
       "volume": "03691-25",
       "doi": "10.1128/spectrum.03691-25",
       "url": "https://journals.asm.org/doi/10.1128/spectrum.03691-25",
+      "featured": true,
+      "order": 0
+    },
+    {
+      "id": "recT8z47I9Xf77Yor",
+      "year": 2026,
+      "group": "2026",
+      "title": "Integrative holo-omic data analysis predicts interactions across the host-microbiome axis",
+      "authors": "Merkesvik J, Langa J, Pietroni C, Alberdi A, Poulsen LL, Bojesen AM, Meuronen T, Turunen S, Kärkkäinen O, Westereng B, Pope PB, Hvidsten TR",
+      "journal": "Microbiology Spectrum",
+      "volume": "e00263-26",
+      "doi": "10.1128/spectrum.00263-26",
+      "url": "https://journals.asm.org/doi/full/10.1128/spectrum.00263-26",
       "featured": true,
       "order": 0
     },
