@@ -82,3 +82,19 @@ test("requires credentials and validates the safety threshold", () => {
     /positive integer/,
   );
 });
+
+test("sorts publications within a year by Date, newest first", () => {
+  const record = (id, title, date) => ({
+    id,
+    fields: { Title: title, Authors: "A Author", Year: 2026, ...(date ? { Date: date } : {}) },
+  });
+  const result = normalisePublications([
+    record("recA", "Alpha", "2026-01-10"),
+    record("recB", "Beta", "2026-03-05"),
+    record("recC", "Gamma"),
+    record("recD", "Delta", "2026-02-01"),
+  ]);
+
+  assert.deepEqual(result.map((publication) => publication.id), ["recB", "recD", "recA", "recC"]);
+  assert.equal(result[0].date, "2026-03-05");
+});

@@ -13,6 +13,7 @@ const FIELD_ALIASES = {
   title: ["Title", "Publication title", "Publication"],
   authors: ["Authors", "Author(s)", "Author"],
   year: ["Year", "Publication year"],
+  date: ["Date", "Publication date"],
   // Prefer the flat journal field: the relational Journal field contains record IDs.
   journal: [FLAT_JOURNAL_FIELD_ID, "Journal", "Venue"],
   volume: [VOLUME_AND_NUMBER_FIELD_ID, "Volume", "Volume and number", "Volume and issue"],
@@ -80,6 +81,13 @@ function numericOrder(value) {
   return Number.isFinite(parsed) ? parsed : 0;
 }
 
+function isoDate(value) {
+  const match = toText(value).match(/\d{4}-\d{2}-\d{2}/);
+  if (match) return match[0];
+  const parsed = new Date(toText(value));
+  return Number.isNaN(parsed.getTime()) ? "" : parsed.toISOString().slice(0, 10);
+}
+
 function isUnderReview(value) {
   return /under review|in review|submitted/i.test(toText(value));
 }
@@ -120,6 +128,7 @@ export function normalisePublications(records, environment = process.env) {
       id: record.id,
       year: year ?? "",
       group: group || String(year),
+      date: isoDate(fieldValue(fields, "date", environment)),
       title,
       authors,
       journal: toText(fieldValue(fields, "journal", environment)),
@@ -142,6 +151,8 @@ export function normalisePublications(records, environment = process.env) {
     if (groupDifference) return groupDifference;
     if (a.group !== b.group) return a.group.localeCompare(b.group);
     if (b.order !== a.order) return b.order - a.order;
+    // Newest first; undated publications follow the dated ones.
+    if (a.date !== b.date) return a.date && b.date ? b.date.localeCompare(a.date) : a.date ? -1 : 1;
     return a.title.localeCompare(b.title);
   });
 }
