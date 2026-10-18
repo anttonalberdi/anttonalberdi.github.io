@@ -154,39 +154,38 @@
               <span class="software-item__index" aria-hidden="true">04</span>
               <div class="software-item__body">
                 <p class="software-item__type">Command line</p>
-                <h3>giftag <span>— from genomes to GIFT evidence</span></h3>
-                <p class="software-item__summary">Annotate genome and protein FASTA files with the markers gifter evaluates. giftag writes the gene-by-marker table gifter reads, together with the search evidence and a record of which markers could be searched.</p>
+                <h3>BarcodeMapper <span>— shotgun reads to COI and ITS barcodes</span></h3>
+                <p class="software-item__summary">Map paired shotgun reads to taxonomically annotated COI and ITS reference sequences. BarcodeMapper filters reads with fastp, aligns them with Bowtie2, and assigns each read to the lowest taxonomy shared by its accepted alignments, producing a taxonomy count table, an HTML report and a run manifest.</p>
               </div>
               <div class="software-item__tools">
                 <div class="software-item__install">
                   <p>Install</p>
-                  <code><span aria-hidden="true">$ </span>pip install giftag</code>
-                  <small>Then run <code>giftag build</code> and <code>giftag annotate</code>.</small>
+                  <code><span aria-hidden="true">$ </span>python -m pip install --no-deps &lt;release wheel&gt;</code>
+                  <small>Then run <code>barcodemapper --build</code> and <code>barcodemapper -i reads</code>.</small>
                 </div>
-                <nav class="software-item__links" aria-label="giftag resources">
-                  <a href="https://github.com/alberdilab/giftag" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a>
-                  <a href="https://alberdilab.github.io/giftag/" target="_blank" rel="noopener noreferrer">Documentation <span aria-hidden="true">↗</span></a>
-                  <a href="https://pypi.org/project/giftag/" target="_blank" rel="noopener noreferrer">PyPI <span aria-hidden="true">↗</span></a>
+                <nav class="software-item__links" aria-label="BarcodeMapper resources">
+                  <a href="https://github.com/alberdilab/barcodemapper" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a>
+                  <a href="https://barcodemapper.readthedocs.io/" target="_blank" rel="noopener noreferrer">Documentation <span aria-hidden="true">↗</span></a>
+                  <a href="https://github.com/alberdilab/barcodemapper/releases" target="_blank" rel="noopener noreferrer">Releases <span aria-hidden="true">↗</span></a>
                 </nav>
               </div>
             </article>
             <article class="software-item" data-reveal>
               <span class="software-item__index" aria-hidden="true">05</span>
               <div class="software-item__body">
-                <p class="software-item__type">R package</p>
-                <h3>gifter <span>— Genome-Inferred Functional Traits in R</span></h3>
-                <p class="software-item__summary">Infer whether a genome encodes a biologically defined capability, and see the curated evidence behind every call. gifter evaluates metabolic, structural, regulatory and defense traits through explicit completeness models, for single genomes and whole communities.</p>
+                <p class="software-item__type">Mac app</p>
+                <h3>Codeome <span>— research computing on your laptop and the HPC</span></h3>
+                <p class="software-item__summary">One Mac app that brings a code editor, terminals, an agent chat coordinating Claude Code and Codex, Slurm jobs, file transfer, report previews, Git/GitHub, Zenodo and PyPI into a single window.</p>
               </div>
               <div class="software-item__tools">
                 <div class="software-item__install">
                   <p>Install</p>
-                  <code>remotes::install_github(<wbr>"alberdilab/gifter")</code>
-                  <small>Load the package with <code>library(gifter)</code>.</small>
+                  <code><span aria-hidden="true">$ </span>git clone https://github.com/anttonalberdi/codeome.git</code>
+                  <small>Then run <code>npm install</code> and <code>npm run dist</code>.</small>
                 </div>
-                <nav class="software-item__links" aria-label="gifter resources">
-                  <a href="https://github.com/alberdilab/gifter" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a>
-                  <a href="https://alberdilab.github.io/gifter/" target="_blank" rel="noopener noreferrer">Documentation <span aria-hidden="true">↗</span></a>
-                  <a href="https://alberdilab.github.io/gifter/reference/" target="_blank" rel="noopener noreferrer">Reference <span aria-hidden="true">↗</span></a>
+                <nav class="software-item__links" aria-label="Codeome resources">
+                  <a href="https://github.com/anttonalberdi/codeome" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a>
+                  <a href="https://anttonalberdi.github.io/codeome/" target="_blank" rel="noopener noreferrer">Documentation <span aria-hidden="true">↗</span></a>
                 </nav>
               </div>
             </article>
