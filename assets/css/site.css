@@ -3560,6 +3560,61 @@ html:not([data-theme="dark"]) #webbooks .webbook-item__links a:hover {
   text-transform: uppercase;
 }
 
+.ethics-section__counts {
+  display: grid;
+  margin: 36px 0 0;
+  padding: 0;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  list-style: none;
+}
+
+.ethics-section__counts a {
+  display: flex;
+  height: 100%;
+  padding: 18px;
+  flex-direction: column;
+  gap: 6px;
+  border: 1px solid var(--line-strong);
+  border-radius: 14px;
+  color: inherit;
+  text-decoration: none;
+}
+
+.ethics-section__counts strong {
+  font-size: 2.4rem;
+  line-height: 1;
+}
+
+.ethics-section__counts span {
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+.ethics-section__counts a:hover,
+.ethics-section__counts a:focus-visible {
+  background: rgba(255, 253, 248, 0.14);
+}
+
+.ethics-section__links a {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.page-section--coral.ethics-section .ethics-section__counts a {
+  color: var(--white);
+  border-color: rgba(255, 253, 248, 0.42);
+}
+
+@media (max-width: 640px) {
+  .ethics-section__counts {
+    grid-template-columns: 1fr;
+  }
+}
+
 .page-section--night.ethics-section .ethics-section__number {
   color: var(--gold);
 }
