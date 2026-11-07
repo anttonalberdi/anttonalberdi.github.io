@@ -3280,14 +3280,14 @@ html.reveal-ready [data-reveal].is-visible {
   margin-bottom: 26px;
   color: var(--gold);
   font-family: "Lora", Georgia, serif;
-  font-size: 1rem;
+  font-size: 1.5rem;
   font-style: italic;
 }
 
 .webbook-item__meta p {
   margin: 0;
   color: rgba(255, 253, 248, 0.48);
-  font-size: 0.59rem;
+  font-size: 0.78rem;
   font-weight: 700;
   letter-spacing: 0.11em;
   text-transform: uppercase;
@@ -3344,6 +3344,55 @@ html.reveal-ready [data-reveal].is-visible {
 
 .webbook-item__links a:hover span {
   transform: translate(3px, -3px);
+}
+
+/* Webbooks: follow the theme instead of staying dark in light mode */
+
+html:not([data-theme="dark"]) #webbooks.page-section--night {
+  background: var(--cream);
+  color: var(--ink);
+}
+
+html:not([data-theme="dark"]) #webbooks .page-heading > p {
+  color: var(--muted);
+}
+
+html:not([data-theme="dark"]) #webbooks .eyebrow {
+  color: var(--coral-dark);
+}
+
+html:not([data-theme="dark"]) #webbooks .webbook-list {
+  border-top-color: var(--line-strong);
+}
+
+html:not([data-theme="dark"]) #webbooks .webbook-item {
+  border-bottom-color: var(--line);
+}
+
+html:not([data-theme="dark"]) #webbooks .webbook-item__meta span {
+  color: var(--coral-dark);
+}
+
+html:not([data-theme="dark"]) #webbooks .webbook-item__meta p {
+  color: var(--muted);
+}
+
+html:not([data-theme="dark"]) #webbooks .webbook-item__body h3 {
+  color: var(--ink);
+}
+
+html:not([data-theme="dark"]) #webbooks .webbook-item__body > p {
+  color: var(--muted);
+}
+
+html:not([data-theme="dark"]) #webbooks .webbook-item__links a {
+  border-color: var(--line-strong);
+  color: var(--ink);
+}
+
+html:not([data-theme="dark"]) #webbooks .webbook-item__links a:hover {
+  border-color: var(--coral);
+  color: var(--white);
 }
 
 /* Teaching */
