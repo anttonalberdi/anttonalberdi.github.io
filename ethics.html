@@ -18,8 +18,9 @@
         document.documentElement.dataset.themePreference = preference;
       })();
     </script>
-    <link rel="stylesheet" href="assets/css/site.css?v=6">
+    <link rel="stylesheet" href="assets/css/site.css?v=7">
     <script type="module" src="assets/js/site.js?v=3"></script>
+    <script type="module" src="assets/js/publishing-chart.js"></script>
     <script data-goatcounter="https://alberdilab.goatcounter.com/count"
             async src="//gc.zgo.at/count.js"></script>
   </head>
@@ -52,6 +53,7 @@
           <a href="#sustainable">Sustainable practices</a>
           <a href="#respectful">Respectful research</a>
           <a href="#open-science">Open science</a>
+          <a href="#responsible-publishing">Responsible publishing</a>
         </div>
       </nav>
 
@@ -155,6 +157,28 @@
               <li>Software &amp; code</li>
               <li>Ideas &amp; methods</li>
             </ul>
+          </div>
+        </div>
+      </section>
+      <section class="page-section ethics-section" id="responsible-publishing" aria-labelledby="responsible-publishing-title">
+        <div class="shell ethics-section__layout">
+          <div class="ethics-section__heading" data-reveal>
+            <span class="ethics-section__number">05</span>
+            <div>
+              <p class="eyebrow eyebrow--dark">Where we publish</p>
+              <h2 id="responsible-publishing-title">Responsible<br>publishing.</h2>
+            </div>
+          </div>
+          <div class="ethics-section__body" data-reveal>
+            <p class="ethics-section__lead">We favour journals run by scientific societies and non-profit publishers.</p>
+            <p>Publishing choices decide where research money ends up. Society and non-profit journals reinvest in the scientific community, so we choose them whenever they are a good home for the work, and we track how that balance changes.</p>
+            <figure class="publishing-chart">
+              <figcaption>Papers per year, by publisher type</figcaption>
+              <div data-publishing-chart aria-busy="true">Loading publication data…</div>
+            </figure>
+            <p class="ethics-section__links">
+              Journals are classified by who owns and publishes them (society or non-profit versus commercial). See every paper on our <a href="publications.html">publications page</a>.
+            </p>
           </div>
         </div>
       </section>

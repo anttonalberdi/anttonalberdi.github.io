@@ -4147,3 +4147,104 @@ html:not([data-theme="dark"]) #webbooks .webbook-item__links a:hover {
     overflow-x: auto;
   }
 }
+
+.publishing-chart {
+  margin: 36px 0 0;
+}
+
+.publishing-chart figcaption {
+  margin-bottom: 18px;
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+.publishing-chart__plot {
+  display: flex;
+  height: 260px;
+  margin: 0;
+  padding: 0 0 0 0;
+  align-items: stretch;
+  gap: 10px;
+  border-bottom: 1px solid var(--line-strong);
+  list-style: none;
+}
+
+.publishing-chart__col {
+  display: flex;
+  min-width: 0;
+  position: relative;
+  flex: 1;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.publishing-chart__col > .publishing-chart__bar {
+  display: flex;
+  width: 100%;
+  max-width: 64px;
+  flex-direction: column-reverse;
+  border-radius: 6px 6px 0 0;
+  overflow: hidden;
+}
+
+.publishing-chart__total {
+  margin-bottom: 4px;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.publishing-chart__year {
+  position: absolute;
+  bottom: -26px;
+  font-size: 0.75rem;
+}
+
+.publishing-chart__seg {
+  display: flex;
+  min-height: 0;
+  flex-basis: 0;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.7rem;
+  font-weight: 700;
+}
+
+.publishing-chart__seg--nonprofit {
+  background: var(--green);
+  color: var(--white);
+}
+
+.publishing-chart__seg--forprofit {
+  background: var(--coral);
+  color: var(--white);
+}
+
+.publishing-chart__seg--unclassified {
+  background: var(--paper-deep);
+  color: var(--ink);
+}
+
+.publishing-chart__legend {
+  display: flex;
+  margin: 44px 0 0;
+  padding: 0;
+  flex-wrap: wrap;
+  gap: 8px 24px;
+  font-size: 0.85rem;
+  list-style: none;
+}
+
+.publishing-chart__legend li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.publishing-chart__swatch {
+  width: 14px;
+  height: 14px;
+  border-radius: 3px;
+}
